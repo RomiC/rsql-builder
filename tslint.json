@@ -1,0 +1,63 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended"
+  ],
+  "rules": {
+    "comment-format": {
+      "options": ["check-space"],
+      "severity": "warning"
+    },
+    "eofline": false,
+    "interface-name": false,
+    "max-line-length": {
+      "options": [120]
+    },
+    "member-access": false,
+    "no-reference": false,
+    "no-string-literal": false,
+    "no-extra-boolean-cast": {
+      "options": true,
+      "severity": "warning"
+    },
+    "no-multi-spaces": {
+      "options": [true],
+      "severity": "warning"
+    },
+    "object-curly-spacing": {
+      "options": ["always"],
+      "severity": "warning"
+    },
+    "object-literal-key-quotes": {
+      "options": "consistent-as-needed",
+      "severity": "warning"
+    },
+    "object-literal-sort-keys": false,
+    "quotemark": {
+      "options": ["single", "jsx-double", "avoid-escape"],
+      "severity": "warning"
+    },
+    "semicolon": {
+      "options": ["always", "ignore-interfaces"],
+      "severity": "warning"
+    },
+    "space-in-parens": {
+      "options": ["never"],
+      "severity": "warning"
+    },
+    "ter-arrow-parens": {
+      "options": ["always"],
+      "severity": "warning"
+    },
+    "ter-indent": {
+      "options": [2, {"SwitchCase": 1}],
+      "severity": "warning"
+    },
+    "trailing-comma": {
+      "options": {"multiline": "never", "singleline": "never"}
+    }
+  },
+  "rulesDirectory": [
+    "node_modules/tslint-eslint-rules/dist/rules"
+  ]
+}

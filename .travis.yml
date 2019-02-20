@@ -1,0 +1,19 @@
+language: node_js
+node_js:
+  - node
+  - 8
+  - 6
+git:
+  depth: 3
+after_success:
+  - npm run coverage
+script:
+  - npm run test:ci
+deploy:
+  provider: npm
+  email: i@charugin.ru
+  api_key:
+    secure: mcdz8zfbIbH3H9OGb8lrSxMcyeOuXz5iu7fzvMO5X0ZLK579rq6KIpGVKiwxcM5MVIjMOAymbvXvBpUr8abg5ILr8nZKo2Pw8a6JIUZUMcfEOpPjBliv46207ws3mSZB0bLPlfvIj6jnZI8EzHsdZ1WkGaCeFVsm/IYh9ZsDOFPvE1au4sp1GVAUzV/+8xHC4pfUxwokHuh4szeLiRyj5spO8lBrJChtR+UKVRnYx6dqnPpcESC2YvM4BigLAZ05RHpbr5hQloQsNGj5Bm2kitS6xGK/EeYefb22PPUZv1k4JQNbcdOwCmZJC6S0xfoO03FXJ0wwX0L/KEguAdM+4qWVlylBvrjU03QAMUQRtKTkhFCF8ANP2u5y1scT8/ELWvF9G2gX/3Y4T9auJbYcpraxYMAbNGNGYGtoYVkHBIsFLXmq3qf8UAIz4a0ooNUOEZK4YDqVSGkTzp2fopqwN53CK9byV8/1y76Y+c9g52LYJV0ZAqgIu1t3UHrq+dxN08f9IHU7LqgzFl6nlWD1rp8pT6w0rD86xMq/7wUtRJCQiM06zV5YHCunMyJbz4ZJm5RT4NS3l5kpM4bkpmxQvFc0oudqrtWdE1rgsDgIJIBaU1TXGcfX0DLMaEC2EBwbHgxgFvrATn/qSabSTDsWH4CrPLqHAlrcXyMdjH4yz8o=
+  on:
+    tags: true
+    repo: RomiC/rsql-builder

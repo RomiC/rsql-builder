@@ -1,0 +1,7 @@
+tests
+.travis.yml
+npm-shrinkwrap.json
+.nyc_output
+node_modules
+.vscode
+*.tgz

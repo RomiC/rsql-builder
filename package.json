@@ -1,0 +1,30 @@
+{
+  "name": "rsql-builder",
+  "version": "1.0.0",
+  "description": "RSQL query builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomiC/rsql-builder.git"
+  },
+  "keywords": [
+    "rsql",
+    "query",
+    "builder"
+  ],
+  "author": "Roman Charugin <i@charugin.ru>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RomiC/rsql-builder/issues"
+  },
+  "homepage": "https://github.com/RomiC/rsql-builder#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.6",
+    "jest": "^24.1.0",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.3"
+  }
+}
