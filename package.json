@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p .",
-    "coverage": "codecov --clear --token=",
+    "coverage": "codecov --clear --token=29f9bb6e-7e4f-4948-9a5a-8e4d41d7805c",
     "lint": "tslint -c tslint.json '{src,tests}/*.ts'",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
