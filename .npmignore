@@ -3,4 +3,9 @@ tests
 .nyc_output
 node_modules
 .vscode
+src
+coverage
+jest.config.js
+tsconfig.json
+tslint.json
 *.tgz
