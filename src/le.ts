@@ -1,5 +1,18 @@
 import { Operation, Operators } from './operation';
 
-export default function le(value: any): Operation {
-  return new Operation(value, Operators.LESS_OR_EQUAL);
+/**
+ * Create less-or-equal operation
+ *
+ * @param argument Operation argument
+ * @returns Less-or-equal operation
+ *
+ * @example
+ * import {le} from 'rsql-builder';
+ *
+ * const op1 = le(300);  // '<=300'
+ * const op2 = le('Taran*');  // '<=Tarant*'
+ * const op3 = le('John Travolta');  // '<="John Travolta"'
+ */
+export default function le(argument: any): Operation {
+  return new Operation(argument, Operators.LESS_OR_EQUAL);
 }

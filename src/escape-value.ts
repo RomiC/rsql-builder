@@ -12,6 +12,12 @@ export class EscapedValue {
   }
 }
 
+/**
+ * Escape string value
+ *
+ * @param value Value to escape
+ * @returns EscapedValue instance
+ */
 export default function escapeValue(value: any): EscapedValue {
   if (value instanceof EscapedValue) {
     return value;

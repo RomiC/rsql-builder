@@ -1,5 +1,8 @@
 import escapeValue from './escape-value';
 
+/**
+ * Operators signs
+ */
 export enum Operators {
   EQUAL = '==',
   NOT_EQUAL = '!=',
@@ -22,9 +25,5 @@ export class Operation {
 
   toString(): string {
     return `${this._operator}${escapeValue(this._args)}`;
-  }
-
-  get operator(): Operators {
-    return this._operator;
   }
 }

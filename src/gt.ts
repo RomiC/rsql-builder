@@ -1,5 +1,18 @@
 import { Operation, Operators } from './operation';
 
-export default function gt(value: any): Operation {
-  return new Operation(value, Operators.GREATER_THAN);
+/**
+ * Create greater-than operation
+ *
+ * @param argument Operation argument
+ * @returns Greater-than operation
+ *
+ * @example
+ * import {gt} from 'rsql-builder';
+ *
+ * const op1 = gt(300);  // '>300'
+ * const op2 = gt('Taran*');  // '>Tarant*'
+ * const op3 = gt('John Travolta');  // '>"John Travolta"'
+ */
+export default function gt(argument: any): Operation {
+  return new Operation(argument, Operators.GREATER_THAN);
 }
