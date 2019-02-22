@@ -1,9 +1,21 @@
-import { and, eq, ge, gt, inList, le, lt, ne, or, outList } from '../src';
-import comparison from '../src/comparison';
+import {
+  and,
+  comparison,
+  eq,
+  ge,
+  gt,
+  inList,
+  le,
+  lt,
+  ne,
+  or,
+  outList
+} from '../src';
 
 describe('Functional tests', () => {
   it('should export public functions', () => {
     expect(typeof and).toBe('function');
+    expect(typeof comparison).toBe('function');
     expect(typeof eq).toBe('function');
     expect(typeof ge).toBe('function');
     expect(typeof gt).toBe('function');

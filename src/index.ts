@@ -1,4 +1,5 @@
 export { default as and } from './and';
+export { default as comparison } from './comparison';
 export { default as eq } from './eq';
 export { default as ge } from './ge';
 export { default as gt } from './gt';
