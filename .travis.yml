@@ -1,19 +1,19 @@
 language: node_js
 node_js:
-  - node
-  - 8
+- node
+- 8
 git:
   depth: 3
 after_success:
-  - npm run coverage
-  - npm run build
+- npm run coverage
+- npm run build
 script:
-  - npm run test
+- npm run test
 deploy:
   provider: npm
   email: i@charugin.ru
   api_key:
-    secure: BcQxMnorCaiqH6XP2z7g4i1IZ+58+GUsq3mvYcSdi3rM7XJE/OdQhpt1Awed0BV6ryaVkjDbcK7lnDlTNDLIEEACrjcfj8RgXtGGIhdoNlGwl0SRF6RjrIBqgzyq+nEq+3zmkgoCwqXlJZ8d32v/Wa0Fei74ZXu0I0exgj5u9mQKZWKGflpp5YlGibHPHGrFxjBdFtuHqYxh8tHUuuaL2aiwy0ME1+mVy60oKiYIIAA61NEICvaVcnBf7W0VE/x47RpOdSAzU04rvMF63hURmARSVcPRxrnHh82XcK3W14Ubl0kti4sNuTKLu8bne7j+p3Vx6UV9Ll/G3wCxAO1++YN8d3+gNTg8FVObgGFDsJ4RZXT5EomHZzhe0ZqON2ve1OgmO8oYI9JlxdiBMhDsMDfo6gSUbHsk2XqWk2ivnH8cA995ZxFY4D+uFFKithWayLdlfBrSdmdmIVP2qFdZFACXfNoOHTab9FlZ/MZbcvnTTgUq+8m5iRwJmg73LDLvPjVNH2DIBTeyH9TSKnZqV73ThPHz0LHkwSqsDQIhqGObpqhHg6KF2Wp9hbO4WqsknaMVajlS6iFGyfwuOSypnSzZWus4Tv+8lAKBGpaacNmHKeNeRdQoQfw67ALf1L8n9Q8ldWePlZkldMzcp4/+f4zsTLiAvyc8tcxxzGqlGIw=
+    secure: P+6gr4NWQG2YcNV5XYq9aUFKMICmYMi51+1pNvJOzHuKbij/tIn874N2ETLO/XFJe5NxCzWRgJrShBdf+1mllYX5XqHepmD5GdtcWMz3+tN0BFLOIDSxZfhdMHvrmw1XLjcVyKvkO9uT/X/mXWPVJ8jMA8jQ5IHBCHGeU0LlUqONQMqtUQrUzXGeXdy/a2BgglpmqlCqnBDfBNqJx0dlUNFBns0f4HpON0fc0Jxz5bL9zy4gRF1AwP4wfS0FXnywBUUHKEvscQvhbcy1Cs7Ho8zUfhd44Zr+vTLbFqz64EaShP7ZR0y7FBPSF5Qek00O8LQyHNrR1cLE9JXNE8jxewXFVHPcznujUUJUsVbmH80iV4x4ZdZy6A7jPQyMcVKe72hZGYXUETpOZMVRDZU4cjDdvrVuQQb7dPm7W5Q3KR8ECmxn/x87hH5aGLjgQgePyzKKGhTdUj3wOhmxNhC98Xg4UpSYIRWAbE+TxwKgrpqZA4Rp60tasjpHbf/so8nHFEMW2kyPufTYvlpdPsLMu8RjPigWkXXIVA2NCck2Bg2Ml20GpLVgniBEeatwxVgvHAACpapCvNIakxeBjPSTmpMvPJfeJMdhR7SHdI1inpVO4dj8lj+F44ZlWsDG5JD2yLFmnUhilJuvJpKUOPpDUyYQnz/KkW7/qldTp0pwQ1s=
   on:
     tags: true
     repo: RomiC/rsql-builder
