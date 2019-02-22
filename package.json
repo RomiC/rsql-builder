@@ -2,9 +2,16 @@
   "name": "rsql-builder",
   "version": "1.0.0",
   "description": "RSQL query builder",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "exit 0"
+    "build": "tsc -p .",
+    "coverage": "codecov --clear --token=29f9bb6e-7e4f-4948-9a5a-8e4d41d7805c",
+    "lint": "tslint -c tslint.json '{src,tests}/*.ts'",
+    "lint:fix": "npm run lint -- --fix",
+    "precommit": "lint-staged",
+    "prepush": "npm test",
+    "start": "ts-node --files -P ./tsconfig.json",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -15,6 +22,9 @@
     "query",
     "builder"
   ],
+  "engines": {
+    "node": ">= 8.9.0"
+  },
   "author": "Roman Charugin <i@charugin.ru>",
   "license": "MIT",
   "bugs": {
@@ -23,8 +33,25 @@
   "homepage": "https://github.com/RomiC/rsql-builder#readme",
   "devDependencies": {
     "@types/jest": "^24.0.6",
+    "codecov": "^3.2.0",
+    "husky": "^1.3.1",
     "jest": "^24.1.0",
+    "lint-staged": "^8.1.4",
     "ts-jest": "^24.0.0",
+    "tslint": "^5.12.1",
+    "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.3.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "npm test"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "npm run lint:fix",
+      "git add"
+    ]
   }
 }
