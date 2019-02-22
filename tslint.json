@@ -1,15 +1,15 @@
 {
   "defaultSeverity": "error",
-  "extends": [
-      "tslint:recommended"
-  ],
+  "extends": ["tslint:recommended"],
   "rules": {
     "comment-format": {
       "options": ["check-space"],
       "severity": "warning"
     },
     "eofline": false,
+    "indent": [true, "spaces", 2],
     "interface-name": false,
+    "max-classes-per-file": false,
     "max-line-length": {
       "options": [120]
     },
@@ -50,14 +50,16 @@
       "severity": "warning"
     },
     "ter-indent": {
-      "options": [2, {"SwitchCase": 1}],
+      "options": [2, { "SwitchCase": 1 }],
       "severity": "warning"
     },
     "trailing-comma": {
-      "options": {"multiline": "never", "singleline": "never"}
+      "options": { "multiline": "never", "singleline": "never" }
+    },
+    "variable-name": {
+      "options": ["allow-leading-underscore"],
+      "severity": "warning"
     }
   },
-  "rulesDirectory": [
-    "node_modules/tslint-eslint-rules/dist/rules"
-  ]
+  "rulesDirectory": ["node_modules/tslint-eslint-rules/dist/rules"]
 }
