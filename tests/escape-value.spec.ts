@@ -10,6 +10,7 @@ describe('escapeValue()', () => {
   });
 
   it('should quoted value', () => {
+    expect(escapeValue('').toString()).toBe('""');
     expect(escapeValue('"quoted"').toString()).toBe('"\\"quoted\\""');
     expect(escapeValue('string with spaces').toString()).toBe(
       '"string with spaces"'

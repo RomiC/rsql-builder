@@ -28,6 +28,10 @@ describe('Functional tests', () => {
   });
 
   it('should build the query', () => {
+    expect(and(comparison('name', eq('')), comparison('year', gt(2003)))).toBe(
+      'name=="";year>2003'
+    );
+
     expect(
       and(comparison('name', eq('Kill Bill')), comparison('year', gt(2003)))
     ).toBe('name=="Kill Bill";year>2003');

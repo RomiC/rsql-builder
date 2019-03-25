@@ -31,7 +31,7 @@ export default function escapeValue(value: any): EscapedValue {
     val = value;
   }
 
-  if (CHARS_TO_ESCAPE.test(val)) {
+  if (CHARS_TO_ESCAPE.test(val) || val.length === 0) {
     return new EscapedValue(`"${val.replace(/"/g, '\\"')}"`);
   } else {
     return new EscapedValue(val);
