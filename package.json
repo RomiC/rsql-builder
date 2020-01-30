@@ -37,7 +37,7 @@
     "husky": "^4.0.2",
     "jest": "^24.1.0",
     "lint-staged": "^9.1.0",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^25.1.0",
     "tslint": "^5.12.1",
     "tslint-eslint-rules": "^5.4.0",
     "typescript": "^3.3.3"
