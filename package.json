@@ -23,7 +23,7 @@
     "builder"
   ],
   "engines": {
-    "node": ">= 8.9.0"
+    "node": ">= 10"
   },
   "author": "Roman Charugin <i@charugin.ru>",
   "license": "MIT",
