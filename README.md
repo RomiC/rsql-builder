@@ -1,6 +1,6 @@
 # rsql-builder [![codecov](https://codecov.io/gh/RomiC/rsql-builder/branch/master/graph/badge.svg)](https://codecov.io/gh/RomiC/rsql-builder)
 
-Here is the simple rsql-query builder utility. It's as minimal as possible but quite powerfull at the same time.
+Here is the simple rsql-query builder utility. It's as minimal as possible but quite powerful at the same time.
 
 ```js
 import { and, comparison, eq, ge, inList, or } from "rsql-builder";
@@ -38,7 +38,7 @@ import { and, comparison, eq, ge } from "rsql-builder";
 
 const op = and(
   comparison("year", ge(1980)),
-  comparision("director", eq("Quentin Tarantino"))
+  comparison("director", eq("Quentin Tarantino"))
 ); // 'year>=1980;director=="Quentin Tarantino"
 ```
 
@@ -57,7 +57,7 @@ import { comparison, eq, ge, or } from "rsql-builder";
 
 const op = or(
   comparison("year", ge(1980)),
-  comparision("director", eq("Quentin Tarantino"))
+  comparison("director", eq("Quentin Tarantino"))
 ); // 'year>=1980,director=="Quentin Tarantino"
 ```
 
