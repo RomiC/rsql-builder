@@ -1,4 +1,4 @@
-# rsql-builder [![Build Status](https://travis-ci.com/RomiC/rsql-builder.svg?branch=master)](https://travis-ci.org/RomiC/rsql-builder) [![codecov](https://codecov.io/gh/RomiC/rsql-builder/branch/master/graph/badge.svg)](https://codecov.io/gh/RomiC/rsql-builder) [![Greenkeeper badge](https://badges.greenkeeper.io/RomiC/rsql-builder.svg)](https://greenkeeper.io/)
+# rsql-builder [![codecov](https://codecov.io/gh/RomiC/rsql-builder/branch/master/graph/badge.svg)](https://codecov.io/gh/RomiC/rsql-builder)
 
 Here is the simple rsql-query builder utility. It's as minimal as possible but quite powerfull at the same time.
 
