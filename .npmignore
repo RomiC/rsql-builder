@@ -1,11 +1,11 @@
-tests
-.travis.yml
+.github
 .nyc_output
-node_modules
 .vscode
-src
+*.tgz
 coverage
 jest.config.js
+node_modules
+src
+tests
 tsconfig.json
 tslint.json
-*.tgz
