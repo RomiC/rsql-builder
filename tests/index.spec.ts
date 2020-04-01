@@ -6,6 +6,7 @@ import {
   gt,
   inList,
   le,
+  like,
   lt,
   ne,
   or,
@@ -67,6 +68,24 @@ describe('Functional tests', () => {
       )
     ).toBe(
       'genres=in=(sci-fi,action);genres=out=(romance,animated,horror),director==Que*Tarantino'
+    );
+
+    expect(
+      and(
+        comparison('title', like('Batman')),
+        comparison('year', lt(2010))
+      )
+    ).toBe(
+      'title=like=Batman;year<2010'
+    );
+
+    expect(
+      and(
+        comparison('title', like('Batman and Robin')),
+        comparison('year', lt(2010))
+      )
+    ).toBe(
+      'title=like="Batman and Robin";year<2010'
     );
 
     expect(

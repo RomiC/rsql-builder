@@ -8,6 +8,7 @@ export enum Operators {
   NOT_EQUAL = '!=',
   LESS_THAN = '<',
   LESS_OR_EQUAL = '<=',
+  LIKE = '=like=',
   GREATER_THAN = '>',
   GREATER_OR_EQUAL = '>=',
   IN = '=in=',
