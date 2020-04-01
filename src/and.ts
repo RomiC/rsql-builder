@@ -40,7 +40,7 @@ function hasOrOperation(operation: string): boolean {
  * );  // 'year>=1980;director=="Quentin Tarantino"
  */
 export default function and(
-  ...comparisons: Array<Comparison | string>
+  ...comparisons: (Comparison | string)[]
 ): string {
   return comparisons
     .map((comparison) =>
