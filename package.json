@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/RomiC/rsql-builder#readme",
   "devDependencies": {
-    "@types/jest": "25.2.1",
+    "@types/jest": "25.2.2",
     "codecov": "3.6.5",
     "husky": "4.2.5",
     "jest": "25.4.0",
