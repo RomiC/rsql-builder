@@ -36,7 +36,7 @@
     "codecov": "3.7.0",
     "husky": "4.2.5",
     "jest": "26.0.1",
-    "lint-staged": "10.2.4",
+    "lint-staged": "10.2.9",
     "ts-jest": "26.0.0",
     "tslint": "6.1.2",
     "tslint-eslint-rules": "5.4.0",
