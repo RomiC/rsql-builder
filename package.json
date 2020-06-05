@@ -5,7 +5,6 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p .",
-    "coverage": "codecov --clear --token=29f9bb6e-7e4f-4948-9a5a-8e4d41d7805c",
     "lint": "tslint -c tslint.json '{src,tests}/*.ts'",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
@@ -33,7 +32,7 @@
   "homepage": "https://github.com/RomiC/rsql-builder#readme",
   "devDependencies": {
     "@types/jest": "25.2.3",
-    "codecov": "3.7.0",
+    "coveralls": "^3.1.0",
     "husky": "4.2.5",
     "jest": "26.0.1",
     "lint-staged": "10.2.4",

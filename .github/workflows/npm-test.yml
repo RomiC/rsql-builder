@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         node: ["10", "12"]
-    name: Test with node ${{ matrix.node }}
+    name: Test with node v${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -19,4 +19,17 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
-      - run: npm run coverage
+      - uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel: true
+
+  finish:
+    needs: test
+    runs-on: ubuntu-latest
+    name: Publishing coverage report
+    steps:
+      - uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}
+          parallel-finished: true
