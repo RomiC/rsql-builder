@@ -1,4 +1,4 @@
-# rsql-builder [![codecov](https://codecov.io/gh/RomiC/rsql-builder/branch/master/graph/badge.svg)](https://codecov.io/gh/RomiC/rsql-builder)
+# rsql-builder [![Coverage Status](https://coveralls.io/repos/github/RomiC/rsql-builder/badge.svg)](https://coveralls.io/github/RomiC/rsql-builder)
 
 Here is the simple rsql-query builder utility. It's as minimal as possible but quite powerful at the same time.
 
