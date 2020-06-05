@@ -218,12 +218,12 @@ import { outList } from "rsql-builder";
 const op = outList(300, "Taran*", "John Travolta"); // '=out=(300,Taran*,"John Travolta")'
 ```
 
-### Custom operators
+## Custom operators
 
 New operators can be easily created as follows:
 
 ```ts
-import { Operation } from 'rsql-builder';
+import { Operation } from "rsql-builder";
 
 export function like(value: any): Operation {
   return new Operation(value, '=like=');
