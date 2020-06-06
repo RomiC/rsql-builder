@@ -226,7 +226,7 @@ New operators can be easily created as follows:
 import { Operation } from "rsql-builder";
 
 export function like(value: any): Operation {
-  return new Operation(value, '=like=');
+  return new Operation(value, "=like=");
 }
 ```
 
