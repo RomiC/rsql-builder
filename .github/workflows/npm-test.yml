@@ -3,6 +3,9 @@ name: Tests
 on:
   pull_request:
     types: [opened, edited, synchronize]
+  push:
+    branches:
+      - master
 
 jobs:
   test:
@@ -22,6 +25,7 @@ jobs:
       - uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
+          flag-name: node v${{ matrix.node }}
           parallel: true
 
   finish:
