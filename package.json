@@ -35,7 +35,7 @@
     "husky": "4.2.5",
     "jest": "26.0.1",
     "lint-staged": "10.2.9",
-    "ts-jest": "26.0.0",
+    "ts-jest": "26.1.0",
     "tslint": "6.1.2",
     "tslint-eslint-rules": "5.4.0",
     "typescript": "3.9.5"
