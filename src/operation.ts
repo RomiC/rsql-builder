@@ -16,9 +16,9 @@ export enum Operators {
 
 export class Operation {
   private _args: any;
-  private _operator: Operators;
+  private _operator: Operators | string;
 
-  constructor(args: any, operator: Operators = Operators.EQUAL) {
+  constructor(args: any, operator: Operators | string = Operators.EQUAL) {
     this._args = args;
     this._operator = operator;
   }
