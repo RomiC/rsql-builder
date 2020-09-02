@@ -35,7 +35,7 @@
   },
   "homepage": "https://github.com/RomiC/rsql-builder#readme",
   "devDependencies": {
-    "@types/jest": "26.0.12",
+    "@types/jest": "26.0.13",
     "husky": "4.2.5",
     "jest": "26.4.2",
     "lint-staged": "10.2.13",
