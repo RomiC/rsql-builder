@@ -1,4 +1,4 @@
-import { Operation, Operators } from './operation';
+import { Argument, Operation, Operators } from './operation';
 
 /**
  * Create less-or-equal operation
@@ -13,6 +13,6 @@ import { Operation, Operators } from './operation';
  * const op2 = le('Taran*');  // '<=Tarant*'
  * const op3 = le('John Travolta');  // '<="John Travolta"'
  */
-export default function le(argument: any): Operation {
+export default function le(argument: Argument): Operation {
   return new Operation(argument, Operators.LESS_OR_EQUAL);
 }

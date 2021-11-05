@@ -1,4 +1,4 @@
-import or from '../src/or';
+import { or } from '../src';
 
 describe('or()', () => {
   it('should return or-expression string', () => {

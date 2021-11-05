@@ -1,5 +1,5 @@
 import escapeValue, { EscapedValue } from './escape-value';
-import { Operation, Operators } from './operation';
+import { Argument, Operation, Operators } from './operation';
 
 /**
  * Create out-list operation
@@ -16,9 +16,9 @@ import { Operation, Operators } from './operation';
  *  'John Travolta'
  * );  // '=out=(300,Taran*,"John Travolta")'
  */
-export default function outList(...args: any[]): Operation {
+export default function outList(...args: Argument[]): Operation {
   return new Operation(
-    new EscapedValue(`(${args.map(escapeValue)})`),
+    new EscapedValue(`(${args.map(escapeValue).join(',')})`),
     Operators.OUT
   );
 }

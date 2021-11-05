@@ -1,4 +1,4 @@
-import { Operation, Operators } from './operation';
+import { Argument, Operation, Operators } from './operation';
 
 /**
  * Create equal operation
@@ -13,6 +13,6 @@ import { Operation, Operators } from './operation';
  * const op2 = eq('Taran*');  // '==Tarant*'
  * const op3 = eq('John Travolta');  // '=="John Travolta"'
  */
-export default function eq(argument: any): Operation {
+export default function eq(argument: Argument): Operation {
   return new Operation(argument, Operators.EQUAL);
 }

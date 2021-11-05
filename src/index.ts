@@ -9,4 +9,4 @@ export { default as lt } from './lt';
 export { default as ne } from './ne';
 export { default as or } from './or';
 export { default as outList } from './out-list';
-export { Operation } from './operation';
+export { Operation, Operators } from './operation';

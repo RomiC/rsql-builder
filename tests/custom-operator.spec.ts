@@ -1,6 +1,6 @@
-import { Operation } from '../src/operation';
+import { Argument, Operation } from '../src/operation';
 
-function customOperator(value: any): Operation {
+function customOperator(value: Argument): Operation {
   return new Operation(value, '=custom=');
 }
 

@@ -1,4 +1,4 @@
-import le from '../src/le';
+import { le } from '../src';
 
 describe('le()', () => {
   it('should return "less-then-or-equal"-operation', () => {

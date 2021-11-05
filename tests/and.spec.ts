@@ -1,4 +1,4 @@
-import and from '../src/and';
+import { and } from '../src';
 
 describe('and()', () => {
   it('should return and-expression string', () => {
