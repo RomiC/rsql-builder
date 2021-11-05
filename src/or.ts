@@ -1,5 +1,4 @@
-import { Comparison } from './comparison';
-import { GroupType } from './comparison-group';
+import { Comparison, GroupType } from './comparison';
 
 /**
  * Create "or"-group operation
@@ -12,7 +11,7 @@ import { GroupType } from './comparison-group';
  *
  * const op = or(
  *   comparison('year', ge(1980)),
- *   comparision('director', eq('*Nolan'))
+ *   comparison('director', eq('*Nolan'))
  * );  // 'year>=1980,director==*Nolan
  */
 export default function or(...comparisons: (Comparison | string)[]): string {

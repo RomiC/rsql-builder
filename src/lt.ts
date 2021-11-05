@@ -1,4 +1,4 @@
-import { Operation, Operators } from './operation';
+import { Argument, Operation, Operators } from './operation';
 
 /**
  * Create less-than operation
@@ -13,6 +13,6 @@ import { Operation, Operators } from './operation';
  * const op2 = lt('Taran*');  // '<Tarant*'
  * const op3 = lt('John Travolta');  // '<"John Travolta"'
  */
-export default function lt(argument: any): Operation {
+export default function lt(argument: Argument): Operation {
   return new Operation(argument, Operators.LESS_THAN);
 }

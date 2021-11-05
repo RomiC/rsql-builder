@@ -1,5 +1,4 @@
-import comparison from '../src/comparison';
-import { Operation, Operators } from '../src/operation';
+import { comparison, Operation, Operators } from '../dist';
 
 describe('comparison()', () => {
   it('should return the correct comparison', () => {

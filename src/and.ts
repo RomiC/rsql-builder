@@ -1,8 +1,7 @@
-import { Comparison } from './comparison';
-import { GroupType } from './comparison-group';
+import { Comparison, GroupType } from './comparison';
 
 function hasOrOperation(operation: string): boolean {
-  let insideBracket: boolean = false;
+  let insideBracket = false;
 
   for (const char of operation) {
     switch (char) {
@@ -39,9 +38,7 @@ function hasOrOperation(operation: string): boolean {
  *   comparision('director', eq('Quentin Tarantino'))
  * );  // 'year>=1980;director=="Quentin Tarantino"
  */
-export default function and(
-  ...comparisons: (Comparison | string)[]
-): string {
+export default function and(...comparisons: (Comparison | string)[]): string {
   return comparisons
     .map((comparison) =>
       typeof comparison === 'string' && hasOrOperation(comparison)

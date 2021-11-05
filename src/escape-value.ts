@@ -1,3 +1,5 @@
+import { Argument } from './operation';
+
 const CHARS_TO_ESCAPE = /["'();,=!~<>\s]/;
 
 export class EscapedValue {
@@ -18,14 +20,18 @@ export class EscapedValue {
  * @param value Value to escape
  * @returns EscapedValue instance
  */
-export default function escapeValue(value: any): EscapedValue {
+export default function escapeValue(value: Argument): EscapedValue {
   if (value instanceof EscapedValue) {
     return value;
   }
 
   let val: string;
 
-  if (typeof value !== 'string') {
+  if (typeof value === 'undefined') {
+    val = 'undefined';
+  } else if (value === null) {
+    val = 'null';
+  } else if (typeof value !== 'string') {
     val = value.toString();
   } else {
     val = value;

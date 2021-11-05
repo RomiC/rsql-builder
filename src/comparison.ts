@@ -1,16 +1,18 @@
 import { Operation } from './operation';
 
-export class Comparison {
-  private _selector: string;
-  private _operation: Operation;
+/**
+ * Comparison groups delimiters
+ */
+export const enum GroupType {
+  AND = ';',
+  OR = ','
+}
 
-  constructor(selector: string, operation: Operation) {
-    this._selector = selector;
-    this._operation = operation;
-  }
+export class Comparison {
+  constructor(private selector: string, private operation: Operation) {}
 
   toString(): string {
-    return `${this._selector}${this._operation}`;
+    return `${this.selector}${this.operation.toString()}`;
   }
 }
 
