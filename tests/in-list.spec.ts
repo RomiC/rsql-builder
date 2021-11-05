@@ -1,4 +1,4 @@
-import inList from '../src/in-list';
+import { inList } from '../src';
 
 describe('inList()', () => {
   it('should return in-list expression', () => {

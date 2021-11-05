@@ -27,11 +27,7 @@ export default function escapeValue(value: Argument): EscapedValue {
 
   let val: string;
 
-  if (typeof value === 'undefined') {
-    val = 'undefined';
-  } else if (value === null) {
-    val = 'null';
-  } else if (typeof value !== 'string') {
+  if (typeof value !== 'string') {
     val = value.toString();
   } else {
     val = value;

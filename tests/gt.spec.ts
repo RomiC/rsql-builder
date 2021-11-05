@@ -1,4 +1,4 @@
-import { gt } from '../dist';
+import { gt } from '../src';
 
 describe('gt()', () => {
   it('should return "less-then"-operator', () => {

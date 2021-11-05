@@ -16,6 +16,7 @@
   "plugins": [
     "eslint-plugin-jsdoc",
     "eslint-plugin-prefer-arrow",
+    "prettier",
     "@typescript-eslint"
   ],
   "rules": {

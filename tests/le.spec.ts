@@ -1,4 +1,4 @@
-import { le } from '../dist';
+import { le } from '../src';
 
 describe('le()', () => {
   it('should return "less-then-or-equal"-operation', () => {

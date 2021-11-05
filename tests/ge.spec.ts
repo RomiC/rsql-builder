@@ -1,4 +1,4 @@
-import { ge } from '../dist';
+import { ge } from '../src';
 
 describe('ge()', () => {
   it('should return "less-then"-operator', () => {

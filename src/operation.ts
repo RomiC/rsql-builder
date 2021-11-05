@@ -14,7 +14,7 @@ export enum Operators {
   OUT = '=out='
 }
 
-export type Argument = number | string | boolean | null | undefined | EscapedValue;
+export type Argument = number | string | boolean | EscapedValue;
 
 export class Operation {
   constructor(private args: Argument, private operator: Operators | string = Operators.EQUAL) {

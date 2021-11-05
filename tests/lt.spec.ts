@@ -1,4 +1,4 @@
-import { lt } from '../dist';
+import { lt } from '../src';
 
 describe('lt()', () => {
   it('should return "less-then"-operator', () => {
