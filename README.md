@@ -3,15 +3,12 @@
 Here is the simple rsql-query builder utility. It's as minimal as possible but quite powerful at the same time.
 
 ```js
-import { and, comparison, eq, ge, inList, or } from "rsql-builder";
+import { and, cmp, eq, ge, inList, or } from "rsql-builder";
 
 const query = and(
-  comparison("genres", inList("sci-fi", "action", "non fiction")),
-  or(
-    comparison("director", eq("Christopher Nolan")),
-    comparison("actor", eq("*Bale"))
-  ),
-  comparison("year", ge(2000))
+  cmp("genres", inList("sci-fi", "action", "non fiction")),
+  or(cmp("director", eq("Christopher Nolan")), cmp("actor", eq("*Bale"))),
+  cmp("year", ge(2000))
 ); // 'genres=in=(sci-fi,action,"non fiction");(director=="Christopher Nolan",actor==*Bale);year>=2000'
 ```
 
@@ -34,12 +31,9 @@ Create "and"-group of comparison.
 **Example**
 
 ```ts
-import { and, comparison, eq, ge } from "rsql-builder";
+import { and, cmp, eq, ge } from "rsql-builder";
 
-const op = and(
-  comparison("year", ge(1980)),
-  comparison("director", eq("Quentin Tarantino"))
-); // 'year>=1980;director=="Quentin Tarantino"
+const op = and(cmp("year", ge(1980)), cmp("director", eq("Quentin Tarantino"))); // 'year>=1980;director=="Quentin Tarantino"
 ```
 
 ### `or(...comparisons): string`
@@ -53,15 +47,12 @@ Create "or"-group of comparison.
 **Example**
 
 ```ts
-import { comparison, eq, ge, or } from "rsql-builder";
+import { cmp, eq, ge, or } from "rsql-builder";
 
-const op = or(
-  comparison("year", ge(1980)),
-  comparison("director", eq("Quentin Tarantino"))
-); // 'year>=1980,director=="Quentin Tarantino"
+const op = or(cmp("year", ge(1980)), cmp("director", eq("Quentin Tarantino"))); // 'year>=1980,director=="Quentin Tarantino"
 ```
 
-### `comparison(field, operation): Comparison`
+### `cmp(field, operation): Comparison` or `comparison(field, operation): Comparison`
 
 Create a new comparison for the field.
 
@@ -73,9 +64,9 @@ Create a new comparison for the field.
 **Example**
 
 ```ts
-import { comparison, eq } from "rsql-builder";
+import { cmp, eq } from "rsql-builder";
 
-const comp = comparison("field1", eq(200)); // 'field1==200'
+const comp = cmp("field1", eq(200)); // 'field1==200'
 ```
 
 ### `eq(argument): Operation`
@@ -145,7 +136,7 @@ Create in-list operation
 ```ts
 import { inList } from "rsql-builder";
 
-const op = inList(300, "Taran*", "John Travolta"); // '=in=(300,Taran*,"John Travolta")'
+const op = inList(300, 'Taran*", "John Travolta"); // '=in=(300,Taran*,"John Travolta")'
 ```
 
 ### `le(argument): Operation`
@@ -215,7 +206,7 @@ Create out-list operation
 ```ts
 import { outList } from "rsql-builder";
 
-const op = outList(300, "Taran*", "John Travolta"); // '=out=(300,Taran*,"John Travolta")'
+const op = outList(300, 'Taran*", "John Travolta"); // '=out=(300,Taran*,"John Travolta")'
 ```
 
 ## Custom operators
@@ -226,7 +217,7 @@ New operators can be easily created as follows:
 import { Operation } from "rsql-builder";
 
 export function like(value: any): Operation {
-  return new Operation(value, "=like=");
+  return new Operation(value, '=like=");
 }
 ```
 
