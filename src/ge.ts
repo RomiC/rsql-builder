@@ -13,6 +13,6 @@ import { Argument, Operation, Operators } from './operation';
  * const op2 = ge('Taran*');  // '>=Tarant*'
  * const op3 = ge('John Travolta');  // '>="John Travolta"'
  */
-export default function ge(argument: Argument): Operation {
+export function ge(argument: Argument): Operation {
   return new Operation(argument, Operators.GREATER_OR_EQUAL);
 }

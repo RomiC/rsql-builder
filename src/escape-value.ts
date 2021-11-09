@@ -20,7 +20,7 @@ export class EscapedValue {
  * @param value Value to escape
  * @returns EscapedValue instance
  */
-export default function escapeValue(value: Argument): EscapedValue {
+export function escapeValue(value: Argument): EscapedValue {
   if (value instanceof EscapedValue) {
     return value;
   }

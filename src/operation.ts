@@ -1,4 +1,4 @@
-import escapeValue, { EscapedValue } from './escape-value';
+import { escapeValue, EscapedValue } from './escape-value';
 
 /**
  * Operators signs
@@ -17,8 +17,7 @@ export enum Operators {
 export type Argument = number | string | boolean | EscapedValue;
 
 export class Operation {
-  constructor(private args: Argument, private operator: Operators | string = Operators.EQUAL) {
-  }
+  constructor(private args: Argument, private operator: Operators | string = Operators.EQUAL) {}
 
   toString(): string {
     return `${this.operator}${escapeValue(this.args).toString()}`;

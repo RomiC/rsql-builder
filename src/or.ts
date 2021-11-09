@@ -14,6 +14,6 @@ import { Comparison, GroupType } from './comparison';
  *   comparison('director', eq('*Nolan'))
  * );  // 'year>=1980,director==*Nolan
  */
-export default function or(...comparisons: (Comparison | string)[]): string {
+export function or(...comparisons: (Comparison | string)[]): string {
   return comparisons.join(GroupType.OR);
 }

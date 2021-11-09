@@ -28,9 +28,6 @@ export class Comparison {
  *
  * const comp = comparison('field1', eq(200));  // 'field1==200'
  */
-export default function comparison(
-  selector: string,
-  operation: Operation
-): Comparison {
+export function comparison(selector: string, operation: Operation): Comparison {
   return new Comparison(selector, operation);
 }

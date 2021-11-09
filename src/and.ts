@@ -38,12 +38,10 @@ function hasOrOperation(operation: string): boolean {
  *   comparision('director', eq('Quentin Tarantino'))
  * );  // 'year>=1980;director=="Quentin Tarantino"
  */
-export default function and(...comparisons: (Comparison | string)[]): string {
+export function and(...comparisons: (Comparison | string)[]): string {
   return comparisons
     .map((comparison) =>
-      typeof comparison === 'string' && hasOrOperation(comparison)
-        ? `(${comparison})`
-        : comparison
+      typeof comparison === 'string' && hasOrOperation(comparison) ? `(${comparison})` : comparison
     )
     .join(GroupType.AND);
 }
