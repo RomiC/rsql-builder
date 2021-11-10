@@ -136,7 +136,7 @@ Create in-list operation
 ```ts
 import { inList } from "rsql-builder";
 
-const op = inList(300, 'Taran*", "John Travolta"); // '=in=(300,Taran*,"John Travolta")'
+const op = inList(300, "Taran*", "John Travolta"); // '=in=(300,Taran*,"John Travolta")'
 ```
 
 ### `le(argument): Operation`
@@ -206,7 +206,7 @@ Create out-list operation
 ```ts
 import { outList } from "rsql-builder";
 
-const op = outList(300, 'Taran*", "John Travolta"); // '=out=(300,Taran*,"John Travolta")'
+const op = outList(300, "Taran*", "John Travolta"); // '=out=(300,Taran*,"John Travolta")'
 ```
 
 ## Custom operators
@@ -217,7 +217,7 @@ New operators can be easily created as follows:
 import { Operation } from "rsql-builder";
 
 export function like(value: any): Operation {
-  return new Operation(value, '=like=");
+  return new Operation(value, "=like=");
 }
 ```
 
