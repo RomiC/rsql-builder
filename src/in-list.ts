@@ -1,4 +1,4 @@
-import escapeValue, { EscapedValue } from './escape-value';
+import { escapeValue, EscapedValue } from './escape-value';
 import { Argument, Operation, Operators } from './operation';
 
 /**
@@ -16,9 +16,6 @@ import { Argument, Operation, Operators } from './operation';
  *  'John Travolta'
  * );  // '=in=(300,Taran*,"John Travolta")'
  */
-export default function inList(...args: Argument[]): Operation {
-  return new Operation(
-    new EscapedValue(`(${args.map(escapeValue).join(',')})`),
-    Operators.IN
-  );
+export function inList(...args: Argument[]): Operation {
+  return new Operation(new EscapedValue(`(${args.map(escapeValue).join(',')})`), Operators.IN);
 }

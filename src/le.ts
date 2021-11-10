@@ -13,6 +13,6 @@ import { Argument, Operation, Operators } from './operation';
  * const op2 = le('Taran*');  // '<=Tarant*'
  * const op3 = le('John Travolta');  // '<="John Travolta"'
  */
-export default function le(argument: Argument): Operation {
+export function le(argument: Argument): Operation {
   return new Operation(argument, Operators.LESS_OR_EQUAL);
 }

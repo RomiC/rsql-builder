@@ -7,13 +7,13 @@ import { Comparison, GroupType } from './comparison';
  * @returns Less-or-equal operation
  *
  * @example
- * import {comparison, eq, ge, or} from 'rsql-builder';
+ * import {cmp, eq, ge, or} from 'rsql-builder';
  *
  * const op = or(
- *   comparison('year', ge(1980)),
- *   comparison('director', eq('*Nolan'))
+ *   cmp('year', ge(1980)),
+ *   cmp('director', eq('*Nolan'))
  * );  // 'year>=1980,director==*Nolan
  */
-export default function or(...comparisons: (Comparison | string)[]): string {
+export function or(...comparisons: (Comparison | string)[]): string {
   return comparisons.join(GroupType.OR);
 }

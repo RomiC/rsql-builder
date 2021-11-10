@@ -3,6 +3,7 @@
     "browser": true,
     "es6": true
   },
+  "plugins": ["eslint-plugin-jsdoc", "eslint-plugin-prefer-arrow", "import", "prettier", "@typescript-eslint"],
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
@@ -13,12 +14,6 @@
     "project": ["tsconfig.json", "tests/tsconfig.json"],
     "sourceType": "module"
   },
-  "plugins": [
-    "eslint-plugin-jsdoc",
-    "eslint-plugin-prefer-arrow",
-    "prettier",
-    "@typescript-eslint"
-  ],
   "rules": {
     "@typescript-eslint/adjacent-overload-signatures": "error",
     "@typescript-eslint/array-type": [
@@ -100,6 +95,7 @@
     "guard-for-in": "error",
     "id-blacklist": "warn",
     "id-match": "warn",
+    "import/no-default-export": "error",
     "jsdoc/check-alignment": "error",
     "jsdoc/check-indentation": "error",
     "jsdoc/newline-after-description": "error",

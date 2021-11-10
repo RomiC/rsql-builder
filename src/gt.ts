@@ -13,6 +13,6 @@ import { Argument, Operation, Operators } from './operation';
  * const op2 = gt('Taran*');  // '>Tarant*'
  * const op3 = gt('John Travolta');  // '>"John Travolta"'
  */
-export default function gt(argument: Argument): Operation {
+export function gt(argument: Argument): Operation {
   return new Operation(argument, Operators.GREATER_THAN);
 }

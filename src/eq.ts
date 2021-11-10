@@ -13,6 +13,6 @@ import { Argument, Operation, Operators } from './operation';
  * const op2 = eq('Taran*');  // '==Tarant*'
  * const op3 = eq('John Travolta');  // '=="John Travolta"'
  */
-export default function eq(argument: Argument): Operation {
+export function eq(argument: Argument): Operation {
   return new Operation(argument, Operators.EQUAL);
 }
