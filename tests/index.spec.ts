@@ -5,6 +5,7 @@ describe('Functional tests', () => {
     expect(typeof and).toBe('function');
     expect(typeof cmp).toBe('function');
     expect(typeof comparison).toBe('function');
+    expect(cmp).toBe(comparison);
     expect(typeof eq).toBe('function');
     expect(typeof ge).toBe('function');
     expect(typeof gt).toBe('function');
