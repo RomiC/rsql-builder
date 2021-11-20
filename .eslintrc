@@ -4,14 +4,8 @@
     "es6": true
   },
   "plugins": ["eslint-plugin-jsdoc", "eslint-plugin-prefer-arrow", "import", "prettier", "@typescript-eslint"],
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
+  "extends": ["eslint:recommended", "plugin:markdown/recommended", "prettier", "plugin:markdown/recommended"],
   "parserOptions": {
-    "project": ["tsconfig.json", "tests/tsconfig.json"],
     "sourceType": "module"
   },
   "rules": {
@@ -106,6 +100,7 @@
         "code": 120,
         "comments": 160,
         "ignoreComments": false,
+        "ignoreTrailingComments": true,
         "tabWidth": 2
       }
     ],
@@ -149,5 +144,16 @@
     ],
     "use-isnan": "error",
     "valid-typeof": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parserOptions": {
+        "project": ["tsconfig.json", "tests/tsconfig.json"],
+        "sourceType": "module"
+      }
+    }
+  ]
 }
