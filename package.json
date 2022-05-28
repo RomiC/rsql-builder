@@ -42,7 +42,7 @@
     "@typescript-eslint/parser": "5.26.0",
     "eslint": "8.16.0",
     "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-import": "2.25.4",
+    "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsdoc": "37.9.7",
     "eslint-plugin-markdown": "2.2.1",
     "eslint-plugin-prefer-arrow": "1.2.3",
