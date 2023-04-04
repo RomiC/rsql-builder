@@ -1,0 +1,33 @@
+version: 2
+updates:
+
+  # Maintain dependencies for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "RomiC"
+    commit-message:
+      prefix: "🆙 🛠️"
+    labels:
+      - "dependencies"
+      - "dx"
+    reviewers:
+      - "RomiC"
+
+  # Maintain dependencies for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    assignees:
+      - "RomiC"
+    commit-message:
+      prefix: "🆙 📦"
+    labels:
+      - "dependencies"
+      - "dx"
+    reviewers:
+      - "RomiC"
+    versioning-strategy: increase
