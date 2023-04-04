@@ -37,9 +37,9 @@
   "homepage": "https://github.com/RomiC/rsql-builder#readme",
   "devDependencies": {
     "@types/jest": "29.5.0",
-    "@typescript-eslint/eslint-plugin": "5.56.0",
-    "@typescript-eslint/eslint-plugin-tslint": "5.56.0",
-    "@typescript-eslint/parser": "5.56.0",
+    "@typescript-eslint/eslint-plugin": "5.57.1",
+    "@typescript-eslint/eslint-plugin-tslint": "5.57.1",
+    "@typescript-eslint/parser": "5.57.1",
     "eslint": "8.37.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-import": "2.27.5",
