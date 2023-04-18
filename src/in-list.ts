@@ -15,6 +15,7 @@ import { Argument, Operation, Operators } from './operation';
  *  'Taran*',
  *  'John Travolta'
  * );  // '=in=(300,Taran*,"John Travolta")'
+ *
  */
 export function inList(...args: Argument[]): Operation {
   return new Operation(new EscapedValue(`(${args.map(escapeValue).join(',')})`), Operators.IN);

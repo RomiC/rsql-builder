@@ -13,6 +13,7 @@ import { Comparison, GroupType } from './comparison';
  *   cmp('year', ge(1980)),
  *   cmp('director', eq('*Nolan'))
  * );  // 'year>=1980,director==*Nolan
+ *
  */
 export function or(...comparisons: (Comparison | string)[]): string {
   return comparisons.join(GroupType.OR);

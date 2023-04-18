@@ -37,6 +37,7 @@ function hasOrOperation(operation: string): boolean {
  *   cmp('year', ge(1980)),
  *   comparision('director', eq('Quentin Tarantino'))
  * );  // 'year>=1980;director=="Quentin Tarantino"
+ *
  */
 export function and(...comparisons: (Comparison | string)[]): string {
   return comparisons

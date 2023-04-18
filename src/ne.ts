@@ -12,6 +12,7 @@ import { Argument, Operation, Operators } from './operation';
  * const op1 = ne(300);  // '!=300'
  * const op2 = ne('Taran*');  // '!=Tarant*'
  * const op3 = ne('John Travolta');  // '!="John Travolta"'
+ *
  */
 export function ne(argument: Argument): Operation {
   return new Operation(argument, Operators.NOT_EQUAL);
