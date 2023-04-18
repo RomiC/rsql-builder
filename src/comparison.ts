@@ -2,6 +2,7 @@ import { Operation } from './operation';
 
 /**
  * Comparison groups delimiters
+ *
  */
 export const enum GroupType {
   AND = ';',
@@ -27,6 +28,7 @@ export class Comparison {
  * import {comparison, eq} from 'rsql-builder';
  *
  * const comp = comparison('field1', eq(200));  // 'field1==200'
+ *
  */
 export function comparison(selector: string, operation: Operation): Comparison {
   return new Comparison(selector, operation);

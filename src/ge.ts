@@ -12,6 +12,7 @@ import { Argument, Operation, Operators } from './operation';
  * const op1 = ge(300);  // '>=300'
  * const op2 = ge('Taran*');  // '>=Tarant*'
  * const op3 = ge('John Travolta');  // '>="John Travolta"'
+ *
  */
 export function ge(argument: Argument): Operation {
   return new Operation(argument, Operators.GREATER_OR_EQUAL);

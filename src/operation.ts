@@ -2,6 +2,7 @@ import { escapeValue, EscapedValue } from './escape-value';
 
 /**
  * Operators signs
+ *
  */
 export enum Operators {
   EQUAL = '==',
