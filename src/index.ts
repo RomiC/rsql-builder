@@ -1,5 +1,5 @@
 export { and } from './and';
-export { comparison, comparison as cmp } from './comparison';
+export { comparison, comparison as cmp, Comparison } from './comparison';
 export { eq } from './eq';
 export { ge } from './ge';
 export { gt } from './gt';
