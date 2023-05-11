@@ -23,7 +23,7 @@
     "builder"
   ],
   "engines": {
-    "node": ">= 14.0.0"
+    "node": ">= 16.0.0"
   },
   "author": "Roman Charugin <i@charugin.ru>",
   "contributors": [
