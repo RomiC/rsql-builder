@@ -1,4 +1,4 @@
-import { escapeValue, EscapedValue } from './escape-value';
+import { escapeValue, EscapedValue } from './escape-value.js';
 
 /**
  * Operators signs

@@ -1,5 +1,5 @@
-import { escapeValue, EscapedValue } from './escape-value';
-import { Argument, Operation, Operators } from './operation';
+import { escapeValue, EscapedValue } from './escape-value.js';
+import { Argument, Operation, Operators } from './operation.js';
 
 /**
  * Create out-list operation

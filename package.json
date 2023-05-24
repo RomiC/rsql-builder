@@ -2,9 +2,16 @@
   "name": "rsql-builder",
   "version": "1.1.1",
   "description": "RSQL query builder",
-  "main": "dist/index.js",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js"
+  },
   "scripts": {
-    "build": "tsc -p .",
+    "build": "rm -rf ./lib && npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p . && echo '{\"type\":\"commonjs\"}' > ./dist/cjs/package.json",
+    "build:esm": "tsc --module ES6 --outDir dist/esm -p .",
     "lint": "eslint README.md src tests",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
@@ -69,6 +76,21 @@
     "coverageReporters": [
       "lcov"
     ],
+    "moduleNameMapper": {
+      "./and.js": "<rootDir>/src/and.ts",
+      "./comparison.js": "<rootDir>/src/comparison.ts",
+      "./eq.js": "<rootDir>/src/eq.ts",
+      "./ge.js": "<rootDir>/src/ge.ts",
+      "./gt.js": "<rootDir>/src/gt.ts",
+      "./in-list.js": "<rootDir>/src/in-list.ts",
+      "./le.js": "<rootDir>/src/le.ts",
+      "./lt.js": "<rootDir>/src/lt.ts",
+      "./ne.js": "<rootDir>/src/ne.ts",
+      "./or.js": "<rootDir>/src/or.ts",
+      "./out-list.js": "<rootDir>/src/out-list.ts",
+      "./escape-value.js": "<rootDir>/src/escape-value.ts",
+      "./operation.js": "<rootDir>/src/operation.ts"
+    },
     "roots": [
       "<rootDir>/src/",
       "<rootDir>/tests/"

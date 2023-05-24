@@ -1,4 +1,4 @@
-import { Argument } from './operation';
+import { Argument } from './operation.js';
 
 const CHARS_TO_ESCAPE = /["'();,=!~<>\s]/;
 

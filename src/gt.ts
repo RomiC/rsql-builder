@@ -1,4 +1,4 @@
-import { Argument, Operation, Operators } from './operation';
+import { Argument, Operation, Operators } from './operation.js';
 
 /**
  * Create greater-than operation
