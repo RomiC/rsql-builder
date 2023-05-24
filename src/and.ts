@@ -1,4 +1,4 @@
-import { Comparison, GroupType } from './comparison';
+import { Comparison, GroupType } from './comparison.js';
 
 function hasOrOperation(operation: string): boolean {
   let insideBracket = false;

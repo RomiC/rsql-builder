@@ -3,7 +3,7 @@
 Here is the simple rsql-query builder utility. It's as minimal as possible but quite powerful at the same time.
 
 ```js
-import { and, cmp, eq, ge, inList, or } from 'rsql-builder';
+import { and, cmp, eq, ge, inList, or } from 'rsql-builder'; // or const { and, cmp, eq, ge, inList, or } = require('rsql-builder')
 
 const query = and(
   cmp('genres', inList('sci-fi', 'action', 'non fiction')),
