@@ -8,10 +8,10 @@
     "lint": "eslint README.md src tests",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
+    "prepare": "husky install",
     "prepush": "npm test",
     "start": "ts-node --files -P ./tsconfig.json",
-    "test": "jest",
-    "prepare": "husky install"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
