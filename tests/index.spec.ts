@@ -1,4 +1,4 @@
-import { Comparison, and, cmp, comparison, eq, ge, gt, inList, le, lt, ne, or, outList } from '../src';
+import { Comparison, and, cmp, comparison, eq, escapeValue, ge, gt, inList, le, lt, ne, or, outList } from '../src';
 
 describe('Functional tests', () => {
   it('should export public functions', () => {
@@ -16,6 +16,7 @@ describe('Functional tests', () => {
     expect(typeof or).toBe('function');
     expect(typeof outList).toBe('function');
     expect(typeof Comparison).toBe('function');
+    expect(typeof escapeValue).toBe('function');
   });
 
   it('should build the query', () => {

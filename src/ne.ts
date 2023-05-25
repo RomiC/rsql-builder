@@ -1,3 +1,4 @@
+import { escapeValue } from './escape-value.js';
 import { Argument, Operation, Operators } from './operation.js';
 
 /**
@@ -15,5 +16,5 @@ import { Argument, Operation, Operators } from './operation.js';
  *
  */
 export function ne(argument: Argument): Operation {
-  return new Operation(argument, Operators.NOT_EQUAL);
+  return new Operation(escapeValue(argument), Operators.NOT_EQUAL);
 }

@@ -226,3 +226,9 @@ import { like } from '../my-rsql-operators/like';
 
 const op = like('John Travolta'); // '=like="John Travolta"'
 ```
+
+If the value can contain special characters, `escapeValue` function can be used to escape them:
+
+```js
+new Operation(escapeValue(value), '=like=');
+```

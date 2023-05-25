@@ -1,3 +1,4 @@
+import { escapeValue } from './escape-value.js';
 import { Argument, Operation, Operators } from './operation.js';
 
 /**
@@ -15,5 +16,5 @@ import { Argument, Operation, Operators } from './operation.js';
  *
  */
 export function gt(argument: Argument): Operation {
-  return new Operation(argument, Operators.GREATER_THAN);
+  return new Operation(escapeValue(argument), Operators.GREATER_THAN);
 }

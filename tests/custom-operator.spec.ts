@@ -1,7 +1,8 @@
+import { escapeValue } from '../src/escape-value';
 import { Argument, Operation } from '../src/operation';
 
 function customOperator(value: Argument): Operation {
-  return new Operation(value, '=custom=');
+  return new Operation(escapeValue(value), '=custom=');
 }
 
 describe('custom operator', () => {

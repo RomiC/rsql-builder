@@ -1,41 +1,16 @@
-import { Argument } from './operation.js';
-
 const CHARS_TO_ESCAPE = /["'();,=!~<>\s]/;
 
-export class EscapedValue {
-  private val: string;
+export function escapeValue(value: unknown): string {
+  let valueString: string;
 
-  constructor(val: string) {
-    this.val = val;
-  }
-
-  toString(): string {
-    return this.val;
-  }
-}
-
-/**
- * Escape string value
- *
- * @param value Value to escape
- * @returns EscapedValue instance
- */
-export function escapeValue(value: Argument): EscapedValue {
-  if (value instanceof EscapedValue) {
-    return value;
-  }
-
-  let val: string;
-
-  if (typeof value !== 'string') {
-    val = value.toString();
+  if (Array.isArray(value)) {
+    return `${value.map(escapeValue)}`;
   } else {
-    val = value;
+    valueString = value.toString();
+  }
+  if (CHARS_TO_ESCAPE.test(valueString) || valueString.length === 0) {
+    valueString = `"${valueString.replace(/"/g, '\\"')}"`;
   }
 
-  if (CHARS_TO_ESCAPE.test(val) || val.length === 0) {
-    return new EscapedValue(`"${val.replace(/"/g, '\\"')}"`);
-  } else {
-    return new EscapedValue(val);
-  }
+  return valueString;
 }
