@@ -12,7 +12,7 @@
     "build": "rm -rf ./dist && npm run build:cjs && npm run build:esm",
     "build:cjs": "tsc -p . && echo '{\"type\":\"commonjs\"}' > ./dist/cjs/package.json",
     "build:esm": "tsc --module ES6 --outDir dist/esm -p .",
-    "lint": "eslint README.md src tests",
+    "lint": "eslint src tests",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
     "prepare": "husky install",

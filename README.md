@@ -232,3 +232,11 @@ If the value can contain special characters, `escapeValue` function can be used 
 ```js
 new Operation(escapeValue(value), '=like=');
 ```
+
+A custom list operator could look like this:
+
+```js
+function customListOperator(value: Argument[]): Operation {
+  return new Operation(`(${escapeValue(value)})`, '=customListOperator=');
+}
+```
