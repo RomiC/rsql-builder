@@ -1,5 +1,5 @@
-import { cmp, Operation, Operators } from '../src';
 import { escapeValue } from '../src/escape-value';
+import { cmp, Operation, Operators } from '../src';
 
 describe('cmp()', () => {
   it('should return the correct comparison', () => {
