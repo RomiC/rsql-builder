@@ -89,7 +89,20 @@
     "guard-for-in": "error",
     "id-blacklist": "warn",
     "id-match": "warn",
+    "import/newline-after-import": "error",
     "import/no-default-export": "error",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "desc",
+          "orderImportKind": "asc",
+          "caseInsensitive": true
+        },
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always"
+      }
+    ],
     "jsdoc/check-alignment": "error",
     "jsdoc/check-indentation": "error",
     "jsdoc/tag-lines": [

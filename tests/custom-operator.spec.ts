@@ -1,7 +1,12 @@
 import { Argument, Operation } from '../src/operation';
+import { escapeValue } from '../src/escape-value';
 
 function customOperator(value: Argument): Operation {
-  return new Operation(value, '=custom=');
+  return new Operation(escapeValue(value), '=custom=');
+}
+
+function customListOperator(value: Argument[]): Operation {
+  return new Operation(`(${escapeValue(value)})`, '=customListOperator=');
 }
 
 describe('custom operator', () => {
@@ -19,5 +24,11 @@ describe('custom operator', () => {
 
   it('should return custom-expression string when a string with quotes is provided', () => {
     expect(customOperator('"quoted" string').toString()).toBe('=custom="\\"quoted\\" string"');
+  });
+});
+
+describe('custom list operator', () => {
+  it('should return custom-expression string when a number is provided', () => {
+    expect(customListOperator(['first', 'second']).toString()).toBe('=customListOperator=(first,second)');
   });
 });

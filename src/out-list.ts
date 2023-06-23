@@ -1,5 +1,5 @@
-import { escapeValue, EscapedValue } from './escape-value.js';
 import { Argument, Operation, Operators } from './operation.js';
+import { escapeValue } from './escape-value.js';
 
 /**
  * Create out-list operation
@@ -18,5 +18,5 @@ import { Argument, Operation, Operators } from './operation.js';
  *
  */
 export function outList(...args: Argument[]): Operation {
-  return new Operation(new EscapedValue(`(${args.map(escapeValue).join(',')})`), Operators.OUT);
+  return new Operation(`(${args.map(escapeValue).join(',')})`, Operators.OUT);
 }

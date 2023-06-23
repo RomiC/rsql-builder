@@ -1,4 +1,5 @@
 import { Argument, Operation, Operators } from './operation.js';
+import { escapeValue } from './escape-value.js';
 
 /**
  * Create less-or-equal operation
@@ -15,5 +16,5 @@ import { Argument, Operation, Operators } from './operation.js';
  *
  */
 export function le(argument: Argument): Operation {
-  return new Operation(argument, Operators.LESS_OR_EQUAL);
+  return new Operation(escapeValue(argument), Operators.LESS_OR_EQUAL);
 }

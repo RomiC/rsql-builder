@@ -217,7 +217,7 @@ New operators can be easily created as follows:
 import { Operation } from 'rsql-builder';
 
 export function like(value) {
-  return new Operation(value, '=like=');
+  return new Operation(escapeValue(value), '=like=');
 }
 ```
 
@@ -225,4 +225,18 @@ export function like(value) {
 import { like } from '../my-rsql-operators/like';
 
 const op = like('John Travolta'); // '=like="John Travolta"'
+```
+
+It is recommended to use `escapeValue` function that handles special characters, however, you can omit it if you don't need it.
+
+```js
+new Operation(escapeValue(value), '=like=');
+```
+
+A custom list operator could look like this:
+
+```typescript
+function customListOperator(value: Argument[]): Operation {
+  return new Operation(`(${escapeValue(value)})`, '=customListOperator=');
+}
 ```

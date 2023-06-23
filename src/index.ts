@@ -10,3 +10,4 @@ export { ne } from './ne.js';
 export { or } from './or.js';
 export { outList } from './out-list.js';
 export { Operation, Operators } from './operation.js';
+export { escapeValue } from './escape-value.js';

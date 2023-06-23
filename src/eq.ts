@@ -1,4 +1,5 @@
 import { Argument, Operation, Operators } from './operation.js';
+import { escapeValue } from './escape-value.js';
 
 /**
  * Create equal operation
@@ -15,5 +16,5 @@ import { Argument, Operation, Operators } from './operation.js';
  *
  */
 export function eq(argument: Argument): Operation {
-  return new Operation(argument, Operators.EQUAL);
+  return new Operation(escapeValue(argument), Operators.EQUAL);
 }
