@@ -45,7 +45,7 @@
   "devDependencies": {
     "@types/jest": "29.5.5",
     "@types/node": "^20.8.0",
-    "@typescript-eslint/eslint-plugin": "6.5.0",
+    "@typescript-eslint/eslint-plugin": "6.7.3",
     "@typescript-eslint/parser": "6.7.3",
     "caniuse-lite": "1.0.30001541",
     "eslint": "8.50.0",
