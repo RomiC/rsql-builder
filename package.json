@@ -44,7 +44,7 @@
   "homepage": "https://github.com/RomiC/rsql-builder#readme",
   "devDependencies": {
     "@types/jest": "29.5.7",
-    "@types/node": "^20.8.10",
+    "@types/node": "^20.10.1",
     "@typescript-eslint/eslint-plugin": "6.9.1",
     "@typescript-eslint/parser": "6.9.1",
     "caniuse-lite": "1.0.30001559",
