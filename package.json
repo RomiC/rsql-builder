@@ -52,7 +52,7 @@
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsdoc": "60.7.1",
-    "eslint-plugin-markdown": "3.0.1",
+    "eslint-plugin-markdown": "5.1.0",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-prettier": "5.5.4",
     "husky": "9.1.7",
