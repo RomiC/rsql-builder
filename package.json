@@ -47,7 +47,7 @@
     "@types/node": "^22.0.2",
     "@typescript-eslint/eslint-plugin": "7.0.0",
     "@typescript-eslint/parser": "6.21.0",
-    "caniuse-lite": "1.0.30001646",
+    "caniuse-lite": "1.0.30001664",
     "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
