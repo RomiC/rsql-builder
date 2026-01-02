@@ -1,5 +1,5 @@
-import { Argument, Operation, Operators } from './operation.js';
-import { escapeValue } from './escape-value.js';
+import { Argument, Operation, Operators } from './operation';
+import { escapeValue } from './escape-value';
 
 /**
  * Create less-or-equal operation

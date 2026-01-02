@@ -1,4 +1,4 @@
-import { Comparison, GroupType } from './comparison.js';
+import { Comparison, GroupType } from './comparison';
 
 /**
  * Create "or"-group operation
