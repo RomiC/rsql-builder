@@ -10,6 +10,6 @@
     "outDir": "dist/cjs",
     "baseUrl": "."
   },
-  "include": ["src/*"],
+  "include": ["src/*", "*.ts"],
   "exclude": ["node_modules/*", "examples/*"]
 }
