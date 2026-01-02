@@ -1,4 +1,4 @@
-import { Comparison, GroupType } from './comparison.js';
+import { type Comparison, GroupType } from './comparison';
 
 function hasOrOperation(operation: string): boolean {
   let insideBracket = false;
@@ -27,7 +27,7 @@ function hasOrOperation(operation: string): boolean {
 /**
  * Generate "and"-group of comparisons
  *
- * @param comparisons List of comparisons or strings (for comparision group)
+ * @param comparisons List of comparisons or strings (for comparison group)
  * @returns "and"-group string
  *
  * @example
@@ -35,7 +35,7 @@ function hasOrOperation(operation: string): boolean {
  *
  * const op = and(
  *   cmp('year', ge(1980)),
- *   comparision('director', eq('Quentin Tarantino'))
+ *   comparison('director', eq('Quentin Tarantino'))
  * );  // 'year>=1980;director=="Quentin Tarantino"
  *
  */

@@ -1,6 +1,5 @@
 /**
  * Operators signs
- *
  */
 export enum Operators {
   EQUAL = '==',
@@ -16,7 +15,10 @@ export enum Operators {
 export type Argument = number | string | boolean;
 
 export class Operation {
-  constructor(private args: Argument, private operator: Operators | string = Operators.EQUAL) {}
+  constructor(
+    private args: Argument,
+    private operator: Operators | string = Operators.EQUAL
+  ) {}
 
   toString(): string {
     return `${this.operator}${this.args.toString()}`;

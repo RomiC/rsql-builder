@@ -1,8 +1,7 @@
-import { Operation } from './operation.js';
+import { Operation } from './operation';
 
 /**
  * Comparison groups delimiters
- *
  */
 export const enum GroupType {
   AND = ';',
@@ -10,7 +9,10 @@ export const enum GroupType {
 }
 
 export class Comparison {
-  constructor(private selector: string, private operation: Operation) {}
+  constructor(
+    private selector: string,
+    private operation: Operation
+  ) {}
 
   toString(): string {
     return `${this.selector}${this.operation.toString()}`;
@@ -28,7 +30,6 @@ export class Comparison {
  * import {comparison, eq} from 'rsql-builder';
  *
  * const comp = comparison('field1', eq(200));  // 'field1==200'
- *
  */
 export function comparison(selector: string, operation: Operation): Comparison {
   return new Comparison(selector, operation);

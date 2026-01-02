@@ -19,7 +19,7 @@
   },
   "scripts": {
     "build": "tsup",
-    "lint": "eslint README.md src tests",
+    "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
     "prepare": "husky install",
@@ -50,16 +50,14 @@
   },
   "homepage": "https://github.com/RomiC/rsql-builder#readme",
   "devDependencies": {
+    "@eslint/js": "9.36.0",
     "@types/jest": "30.0.0",
-    "@types/node": "^25.0.3",
-    "@typescript-eslint/eslint-plugin": "7.0.0",
-    "@typescript-eslint/parser": "6.21.0",
+    "@types/node": "25.0.3",
     "caniuse-lite": "1.0.30001762",
-    "eslint": "8.57.0",
+    "eslint": "9.36.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-import": "2.32.0",
     "eslint-plugin-jsdoc": "61.5.0",
-    "eslint-plugin-markdown": "3.0.1",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-prettier": "5.5.4",
     "husky": "9.1.7",
@@ -68,7 +66,8 @@
     "prettier": "3.7.4",
     "ts-jest": "29.4.6",
     "tsup": "8.5.1",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.45.0"
   },
   "lint-staged": {
     "*.ts": "npm run lint:fix"
@@ -83,21 +82,6 @@
     "coverageReporters": [
       "lcov"
     ],
-    "moduleNameMapper": {
-      "./and.js": "<rootDir>/src/and.ts",
-      "./comparison.js": "<rootDir>/src/comparison.ts",
-      "./eq.js": "<rootDir>/src/eq.ts",
-      "./ge.js": "<rootDir>/src/ge.ts",
-      "./gt.js": "<rootDir>/src/gt.ts",
-      "./in-list.js": "<rootDir>/src/in-list.ts",
-      "./le.js": "<rootDir>/src/le.ts",
-      "./lt.js": "<rootDir>/src/lt.ts",
-      "./ne.js": "<rootDir>/src/ne.ts",
-      "./or.js": "<rootDir>/src/or.ts",
-      "./out-list.js": "<rootDir>/src/out-list.ts",
-      "./escape-value.js": "<rootDir>/src/escape-value.ts",
-      "./operation.js": "<rootDir>/src/operation.ts"
-    },
     "roots": [
       "<rootDir>/src/",
       "<rootDir>/tests/"

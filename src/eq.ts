@@ -1,5 +1,5 @@
-import { Argument, Operation, Operators } from './operation.js';
-import { escapeValue } from './escape-value.js';
+import { Argument, Operation, Operators } from './operation';
+import { escapeValue } from './escape-value';
 
 /**
  * Create equal operation
@@ -8,7 +8,7 @@ import { escapeValue } from './escape-value.js';
  * @returns Equal operation
  *
  * @example
- * import {eq} from 'rsql-builder';
+ * import { eq } from 'rsql-builder';
  *
  * const op1 = eq(300);  // '==300'
  * const op2 = eq('Taran*');  // '==Tarant*'
