@@ -26,8 +26,8 @@
     "prepush": "npm test",
     "pretest": "npm run build",
     "start": "ts-node --files -P ./tsconfig.json",
-    "test": "node --test tests/*.spec.js",
-    "test:coverage": "node --test --experimental-test-coverage tests/*.spec.js"
+    "test": "c8 --reporter=text --reporter=lcov --include=dist node --test tests/*.spec.js",
+    "test:no-coverage": "node --test tests/*.spec.js"
   },
   "repository": {
     "type": "git",

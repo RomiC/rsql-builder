@@ -21,7 +21,6 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run lint
-      - run: mkdir -p coverage
       - run: npm test
       - uses: coverallsapp/github-action@master
         with:
