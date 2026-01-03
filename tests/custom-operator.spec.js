@@ -1,34 +1,35 @@
-import { Argument, Operation } from '../src/operation';
-import { escapeValue } from '../src/escape-value';
+import { describe, it } from 'node:test';
+import assert from 'node:assert/strict';
+import { Operation, escapeValue } from '../dist/index.js';
 
-function customOperator(value: Argument): Operation {
+function customOperator(value) {
   return new Operation(escapeValue(value), '=custom=');
 }
 
-function customListOperator(value: Argument[]): Operation {
+function customListOperator(value) {
   return new Operation(`(${escapeValue(value)})`, '=customListOperator=');
 }
 
 describe('custom operator', () => {
   it('should return custom-expression string when a number is provided', () => {
-    expect(customOperator(100).toString()).toBe('=custom=100');
+    assert.strictEqual(customOperator(100).toString(), '=custom=100');
   });
 
   it('should return custom-expression string when a string is provided', () => {
-    expect(customOperator('string').toString()).toBe('=custom=string');
+    assert.strictEqual(customOperator('string').toString(), '=custom=string');
   });
 
   it('should return custom-expression string when a string with spaces is provided', () => {
-    expect(customOperator('"quoted" string').toString()).toBe('=custom="\\"quoted\\" string"');
+    assert.strictEqual(customOperator('"quoted" string').toString(), '=custom="\\"quoted\\" string"');
   });
 
   it('should return custom-expression string when a string with quotes is provided', () => {
-    expect(customOperator('"quoted" string').toString()).toBe('=custom="\\"quoted\\" string"');
+    assert.strictEqual(customOperator('"quoted" string').toString(), '=custom="\\"quoted\\" string"');
   });
 });
 
 describe('custom list operator', () => {
   it('should return custom-expression string when a number is provided', () => {
-    expect(customListOperator(['first', 'second']).toString()).toBe('=customListOperator=(first,second)');
+    assert.strictEqual(customListOperator(['first', 'second']).toString(), '=customListOperator=(first,second)');
   });
 });

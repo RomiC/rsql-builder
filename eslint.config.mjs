@@ -73,5 +73,12 @@ export default defineConfig(
     name: 'Eslint config file',
     files: ['eslint.config.mjs'],
     rules: { 'import/no-default-export': 'off', 'import/no-unresolved': 'off' }
+  },
+  {
+    name: 'Test files',
+    files: ['tests/*.js'],
+    rules: {
+      'import/no-unresolved': 'off'
+    }
   }
 );
