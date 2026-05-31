@@ -5,7 +5,7 @@ export function escapeValue(value: unknown): string {
     return `${value.map(escapeValue)}`;
   }
 
-  let valueString = value.toString();
+  let valueString = (value as { toString(): string }).toString();
 
   if (CHARS_TO_ESCAPE.test(valueString) || valueString.length === 0) {
     valueString = `"${valueString.replace(/"/g, '\\"')}"`;
