@@ -39,7 +39,10 @@
     "builder"
   ],
   "engines": {
-    "node": ">= 20.0.0"
+    "node": ">= 22"
+  },
+  "overrides": {
+    "yargs": "^18.0.0"
   },
   "author": "Roman Charugin <i@charugin.ru>",
   "contributors": [
