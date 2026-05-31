@@ -18,8 +18,7 @@
     }
   },
   "scripts": {
-    "build": "tsup && npm run build:types",
-    "build:types": "tsc -p tsconfig.types.json && node -e \"require('node:fs').copyFileSync('dist/index.d.ts', 'dist/index.d.cts')\"",
+    "build": "tsup",
     "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
