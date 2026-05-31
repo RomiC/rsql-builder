@@ -5,10 +5,9 @@
     "target": "es2015",
     "declaration": true,
     "noImplicitAny": true,
-    "moduleResolution": "node10",
+    "moduleResolution": "bundler",
     "sourceMap": true,
-    "outDir": "dist/cjs",
-    "ignoreDeprecations": "6.0"
+    "outDir": "dist/cjs"
   },
   "include": ["src/**/*.ts", "*.ts"],
   "exclude": ["node_modules/*", "examples/*"]
