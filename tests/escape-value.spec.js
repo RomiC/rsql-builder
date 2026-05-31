@@ -14,4 +14,9 @@ describe('escapeValue()', () => {
     assert.strictEqual(escapeValue('"quoted"').toString(), '"\\"quoted\\""');
     assert.strictEqual(escapeValue('string with spaces').toString(), '"string with spaces"');
   });
+
+  it('should throw on null or undefined', () => {
+    assert.throws(() => escapeValue(null), TypeError);
+    assert.throws(() => escapeValue(undefined), TypeError);
+  });
 });

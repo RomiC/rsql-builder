@@ -5,7 +5,11 @@ export function escapeValue(value: unknown): string {
     return `${value.map(escapeValue)}`;
   }
 
-  let valueString = (value as { toString(): string }).toString();
+  if (value === null || value === undefined) {
+    throw new TypeError('Cannot escape null or undefined value');
+  }
+
+  let valueString = value.toString();
 
   if (CHARS_TO_ESCAPE.test(valueString) || valueString.length === 0) {
     valueString = `"${valueString.replace(/"/g, '\\"')}"`;
