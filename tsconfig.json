@@ -5,8 +5,7 @@
     "target": "es2015",
     "declaration": true,
     "noImplicitAny": true,
-    "moduleResolution": "node",
-    "ignoreDeprecations": "6.0",
+    "moduleResolution": "bundler",
     "sourceMap": true,
     "outDir": "dist/cjs",
     "baseUrl": "."
