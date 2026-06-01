@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { gt } from '../dist/index.js';
+import { gt } from '../dist/gt.js';
 
 describe('gt()', () => {
   it('should return "less-then"-operator', () => {

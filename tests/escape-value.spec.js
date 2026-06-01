@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { escapeValue } from '../dist/index.js';
+import { escapeValue } from '../dist/escape-value.js';
 
 describe('escapeValue()', () => {
   it('should leave value as it is', () => {

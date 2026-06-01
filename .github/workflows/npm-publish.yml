@@ -21,7 +21,6 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npm run build
       - run: npm run test:no-coverage
       - run: npm run test:smoke
 
