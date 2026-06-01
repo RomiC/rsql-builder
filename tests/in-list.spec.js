@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { inList } from '../dist/index.js';
+import { inList } from '../dist/in-list.js';
 
 describe('inList()', () => {
   it('should return in-list expression', () => {

@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { le } from '../dist/index.js';
+import { le } from '../dist/le.js';
 
 describe('le()', () => {
   it('should return "less-then-or-equal"-operation', () => {
