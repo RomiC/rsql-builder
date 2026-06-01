@@ -18,16 +18,15 @@
     }
   },
   "scripts": {
-    "build": "tsup && npm run build:types",
-    "build:types": "tsc -p tsconfig.types.json && node -e \"require('node:fs').copyFileSync('dist/index.d.ts', 'dist/index.d.cts')\"",
+    "build": "tsdown",
     "lint": "eslint",
     "lint:fix": "npm run lint -- --fix",
     "precommit": "lint-staged",
     "prepare": "husky install",
-    "prepush": "npm test",
+    "prepush": "npm run test && npm run test:smoke",
     "pretest": "npm run build",
-    "start": "ts-node --files -P ./tsconfig.json",
     "test": "c8 --reporter=text --reporter=lcov --include=dist node --test tests/*.spec.js",
+    "test:smoke": "node ./scripts/smoke-cjs.cjs && node ./scripts/smoke-esm.mjs",
     "test:no-coverage": "node --test tests/*.spec.js"
   },
   "repository": {
@@ -68,7 +67,7 @@
     "husky": "9.1.7",
     "lint-staged": "17.0.5",
     "prettier": "3.8.3",
-    "tsup": "8.5.1",
+    "tsdown": "0.22.1",
     "typescript": "6.0.3",
     "typescript-eslint": "8.60.0"
   },

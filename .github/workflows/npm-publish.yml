@@ -23,6 +23,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run test:no-coverage
+      - run: npm run test:smoke
 
   publish-npm:
     needs: build

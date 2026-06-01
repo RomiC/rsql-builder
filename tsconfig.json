@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es2015",
+    "module": "esnext",
+    "target": "es2023",
     "declaration": true,
     "noImplicitAny": true,
     "moduleResolution": "bundler",
     "sourceMap": true,
+    "rootDir": "src/",
     "outDir": "dist/cjs"
   },
-  "include": ["src/**/*.ts", "*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules/*", "examples/*"]
 }
