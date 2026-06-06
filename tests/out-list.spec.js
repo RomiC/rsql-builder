@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { outList } from '../dist/index.js';
+import { outList } from '../dist/out-list.js';
 
 describe('outList()', () => {
   it('should return out-list expression', () => {

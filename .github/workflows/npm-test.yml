@@ -21,7 +21,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run lint
-      - run: npm test
+      - run: npm run test:smoke
+      - run: npm run test
       - uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}

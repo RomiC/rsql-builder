@@ -5,6 +5,10 @@ export function escapeValue(value: unknown): string {
     return `${value.map(escapeValue)}`;
   }
 
+  if (value === null || value === undefined) {
+    throw new TypeError('Cannot escape null or undefined value');
+  }
+
   let valueString = value.toString();
 
   if (CHARS_TO_ESCAPE.test(valueString) || valueString.length === 0) {
