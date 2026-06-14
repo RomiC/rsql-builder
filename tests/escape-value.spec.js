@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { escapeValue } from '../dist/index.js';
+import { escapeValue } from '../dist/escape-value.js';
 
 describe('escapeValue()', () => {
   it('should leave value as it is', () => {
@@ -13,5 +13,10 @@ describe('escapeValue()', () => {
     assert.strictEqual(escapeValue('').toString(), '""');
     assert.strictEqual(escapeValue('"quoted"').toString(), '"\\"quoted\\""');
     assert.strictEqual(escapeValue('string with spaces').toString(), '"string with spaces"');
+  });
+
+  it('should throw on null or undefined', () => {
+    assert.throws(() => escapeValue(null), TypeError);
+    assert.throws(() => escapeValue(undefined), TypeError);
   });
 });

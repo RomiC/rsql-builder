@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "esModuleInterop": true,
-    "target": "es2015",
+    "module": "esnext",
+    "target": "es2023",
     "declaration": true,
     "noImplicitAny": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "sourceMap": true,
-    "outDir": "dist/cjs",
-    "baseUrl": "."
+    "rootDir": "src/",
+    "outDir": "dist/"
   },
-  "include": ["src/*", "*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules/*", "examples/*"]
 }
