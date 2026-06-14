@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { ne } from '../dist/index.js';
+import { ne } from '../dist/ne.js';
 
 describe('ne()', () => {
   it('should return "not-equal"-operator', () => {
