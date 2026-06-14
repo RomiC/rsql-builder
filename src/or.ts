@@ -1,10 +1,16 @@
+import { type Argument, Operation } from './operation';
 import { Comparison, GroupType } from './comparison';
+
+/**
+ * Operator function reference type.
+ */
+type Operator = ((value: Argument) => Operation) | ((...args: Argument[]) => Operation);
 
 /**
  * Create "or"-group operation
  *
- * @param argument Operation argument
- * @returns Less-or-equal operation
+ * @param comparisons List of comparisons, strings, or comparison tuples
+ * @returns "or"-group string
  *
  * @example
  * import {cmp, eq, ge, or} from 'rsql-builder';
@@ -14,7 +20,27 @@ import { Comparison, GroupType } from './comparison';
  *   cmp('director', eq('*Nolan'))
  * );  // 'year>=1980,director==*Nolan
  *
+ * @example <caption>With tuple syntax</caption>
+ * import {or, eq, inList} from 'rsql-builder';
+ *
+ * const op = or(
+ *   ['field1', eq, 'val'],
+ *   ['field2', inList, 'foo', 'bar']
+ * );  // 'field1==val,field2=in=(foo,bar)'
+ *
  */
-export function or(...comparisons: (Comparison | string)[]): string {
-  return comparisons.join(GroupType.OR);
+export function or(...comparisons: (Comparison | string)[]): string;
+export function or(
+  ...comparisons: (Comparison | string | [fieldName: string, operator: Operator, ...values: Argument[]])[]
+): string;
+export function or(...comparisons: (Comparison | string | unknown[])[]): string {
+  return comparisons
+    .map((entry) => {
+      if (Array.isArray(entry)) {
+        const [selector, operator, ...values] = entry;
+        return `${selector}${(operator as Operator)(...values).toString()}`;
+      }
+      return entry;
+    })
+    .join(GroupType.OR);
 }

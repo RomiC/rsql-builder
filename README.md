@@ -26,14 +26,25 @@ Create "and"-group of comparison.
 
 **Arguments**
 
-- `comparisons` – list of comparisons, instances of Comparison-class or strings (for other comparison groups)
+- `comparisons` – list of comparisons, instances of Comparison-class, strings (for other comparison groups), or comparison tuples (see below)
 
-**Example**
+**Examples**
 
 ```js
 import { and, cmp, eq, ge } from 'rsql-builder';
 
 const op = and(cmp('year', ge(1980)), cmp('director', eq('Quentin Tarantino'))); // 'year>=1980;director=="Quentin Tarantino"
+```
+
+Comparison tuples provide a concise shorthand without wrapping each condition in `cmp()`:
+
+```js
+import { and, eq, inList } from 'rsql-builder';
+
+const op = and(
+  ['field1', eq, 'val'],
+  ['field2', inList, 'foo', 'bar', 'baz']
+); // 'field1==val;field2=in=(foo,bar,baz)'
 ```
 
 ### `or(...comparisons): string`
@@ -42,14 +53,25 @@ Create "or"-group of comparison.
 
 **Arguments**
 
-- `comparisons` – list of comparisons, instances of Comparison-class or strings (for other comparison groups)
+- `comparisons` – list of comparisons, instances of Comparison-class, strings (for other comparison groups), or comparison tuples (see below)
 
-**Example**
+**Examples**
 
 ```js
 import { cmp, eq, ge, or } from 'rsql-builder';
 
 const op = or(cmp('year', ge(1980)), cmp('director', eq('Quentin Tarantino'))); // 'year>=1980,director=="Quentin Tarantino"
+```
+
+With comparison tuples:
+
+```js
+import { or, eq, inList } from 'rsql-builder';
+
+const op = or(
+  ['field1', eq, 'val'],
+  ['field2', inList, 'foo', 'bar']
+); // 'field1==val,field2=in=(foo,bar)'
 ```
 
 ### `cmp(field, operation): Comparison` or `comparison(field, operation): Comparison`
@@ -59,15 +81,31 @@ Create a new comparison for the field.
 **Arguments**
 
 - `field {string}` – field name
-- `operation {Operation}` - operation
+- `operation {Operation}` - operation (or operator function reference — see below)
 
-**Example**
+**Examples**
 
 ```js
 import { cmp, eq } from 'rsql-builder';
 
 const comp = cmp('field1', eq(200)); // 'field1==200'
 ```
+
+You can also pass an operator function **without invoking it**, together with its argument(s):
+
+```js
+import { cmp, eq, inList } from 'rsql-builder';
+
+// Operator reference for single-value ops (eq, ne, ge, gt, le, lt):
+cmp('field1', eq, 200);        // 'field1==200'
+cmp('year', ge, 2000);         // 'year>=2000'
+cmp('name', ne, 'John');       // 'name!=John'
+
+// Operator reference for multi-value ops (inList, outList):
+cmp('genres', inList, 'sci-fi', 'action', 'non fiction'); // 'genres=in=(sci-fi,action,"non fiction")'
+```
+
+Both styles are fully compatible and can be mixed:
 
 ### `eq(argument): Operation`
 
