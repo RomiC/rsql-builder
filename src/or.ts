@@ -1,10 +1,5 @@
 import { type Argument, Operation } from './operation';
-import { Comparison, GroupType } from './comparison';
-
-/**
- * Operator function reference type.
- */
-type Operator = ((value: Argument) => Operation) | ((...args: Argument[]) => Operation);
+import { Comparison, GroupType, type ComparisonTuple } from './comparison';
 
 /**
  * Create "or"-group operation
@@ -30,15 +25,13 @@ type Operator = ((value: Argument) => Operation) | ((...args: Argument[]) => Ope
  *
  */
 export function or(...comparisons: (Comparison | string)[]): string;
-export function or(
-  ...comparisons: (Comparison | string | [fieldName: string, operator: Operator, ...values: Argument[]])[]
-): string;
-export function or(...comparisons: (Comparison | string | unknown[])[]): string {
+export function or(...comparisons: (Comparison | string | ComparisonTuple)[]): string;
+export function or(...comparisons: (Comparison | string | ComparisonTuple)[]): string {
   return comparisons
     .map((entry) => {
       if (Array.isArray(entry)) {
         const [selector, operator, ...values] = entry;
-        return `${selector}${(operator as Operator)(...values).toString()}`;
+        return `${selector}${(operator as (...args: Argument[]) => Operation)(...values).toString()}`;
       }
       return entry;
     })

@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { and, eq, inList, comparison } from '../dist/index.js';
+import { and, cmp, eq, ge, inList, comparison } from '../dist/index.js';
 
 describe('and()', () => {
   it('should return and-expression string', () => {
@@ -38,6 +38,16 @@ describe('and()', () => {
     it('should wrap or-containing strings in parens', () => {
       const query = and(['genres', inList, 'sci-fi', 'action'], 'director==Nolan,actor==Bale');
       assert.strictEqual(query, 'genres=in=(sci-fi,action);(director==Nolan,actor==Bale)');
+    });
+
+    it('should compose with and()', () => {
+      const query = and(comparison('genres', inList, 'sci-fi', 'action', 'non fiction'), cmp('year', ge(2000)));
+      assert.strictEqual(query, 'genres=in=(sci-fi,action,"non fiction");year>=2000');
+    });
+
+    it('should compose with and() using tuple syntax', () => {
+      const query = and(['field1', eq, 'val'], ['field2', inList, 'foo', 'bar', 'baz']);
+      assert.strictEqual(query, 'field1==val;field2=in=(foo,bar,baz)');
     });
   });
 });

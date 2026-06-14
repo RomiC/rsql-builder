@@ -1,10 +1,5 @@
 import { type Argument, Operation } from './operation';
-import { type Comparison, GroupType } from './comparison';
-
-/**
- * Operator function reference type.
- */
-type Operator = ((value: Argument) => Operation) | ((...args: Argument[]) => Operation);
+import { type Comparison, GroupType, type ComparisonTuple } from './comparison';
 
 function hasOrOperation(operation: string): boolean {
   let insideBracket = false;
@@ -54,15 +49,13 @@ function hasOrOperation(operation: string): boolean {
  *
  */
 export function and(...comparisons: (Comparison | string)[]): string;
-export function and(
-  ...comparisons: (Comparison | string | [fieldName: string, operator: Operator, ...values: Argument[]])[]
-): string;
-export function and(...comparisons: (Comparison | string | unknown[])[]): string {
+export function and(...comparisons: (Comparison | string | ComparisonTuple)[]): string;
+export function and(...comparisons: (Comparison | string | ComparisonTuple)[]): string {
   return comparisons
     .map((entry) => {
       if (Array.isArray(entry)) {
         const [selector, operator, ...values] = entry;
-        return `${selector}${(operator as Operator)(...values).toString()}`;
+        return `${selector}${(operator as (...args: Argument[]) => Operation)(...values).toString()}`;
       }
       if (typeof entry === 'string' && hasOrOperation(entry)) {
         return `(${entry})`;

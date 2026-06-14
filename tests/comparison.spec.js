@@ -4,8 +4,6 @@ import {
   escapeValue,
   Operation,
   Operators,
-  cmp,
-  and,
   comparison,
   eq,
   ne,
@@ -83,16 +81,6 @@ describe('comparison()', () => {
 
     it('should work with outList', () => {
       assert.strictEqual(comparison('field', outList, 'romance', 'horror').toString(), 'field=out=(romance,horror)');
-    });
-
-    it('should compose with and()', () => {
-      const query = and(comparison('genres', inList, 'sci-fi', 'action', 'non fiction'), cmp('year', ge(2000)));
-      assert.strictEqual(query, 'genres=in=(sci-fi,action,"non fiction");year>=2000');
-    });
-
-    it('should compose with and() using tuple syntax', () => {
-      const query = and(['field1', eq, 'val'], ['field2', inList, 'foo', 'bar', 'baz']);
-      assert.strictEqual(query, 'field1==val;field2=in=(foo,bar,baz)');
     });
   });
 });
