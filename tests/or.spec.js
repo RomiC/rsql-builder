@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { or } from '../dist/index.js';
+import { or } from '../dist/or.js';
 
 describe('or()', () => {
   it('should return or-expression string', () => {

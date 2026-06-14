@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { and } from '../dist/index.js';
+import { and } from '../dist/and.js';
 
 describe('and()', () => {
   it('should return and-expression string', () => {

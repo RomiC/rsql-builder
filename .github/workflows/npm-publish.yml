@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["20", "22", "24"]
+        node: ["22", "24", "26"]
     name: Test with node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v6
@@ -21,8 +21,8 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm ci
-      - run: npm run build
       - run: npm run test:no-coverage
+      - run: npm run test:smoke
 
   publish-npm:
     needs: build

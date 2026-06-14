@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["20", "22", "24"]
+        node: ["22", "24", "26"]
     name: Test with node v${{ matrix.node }}
     steps:
       - uses: actions/checkout@v6
@@ -21,7 +21,8 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm ci
       - run: npm run lint
-      - run: npm test
+      - run: npm run test
+      - run: npm run test:smoke
       - uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.github_token }}
