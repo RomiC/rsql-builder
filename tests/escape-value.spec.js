@@ -13,6 +13,9 @@ describe('escapeValue()', () => {
     assert.strictEqual(escapeValue('').toString(), '""');
     assert.strictEqual(escapeValue('"quoted"').toString(), '"\\"quoted\\""');
     assert.strictEqual(escapeValue('string with spaces').toString(), '"string with spaces"');
+    assert.strictEqual(escapeValue('a\\b').toString(), '"a\\\\b"');
+    assert.strictEqual(escapeValue('a\\b"c').toString(), '"a\\\\b\\"c"');
+    assert.strictEqual(escapeValue('a\\\\b""').toString(), '"a\\\\\\\\b\\"\\""');
   });
 
   it('should throw on null or undefined', () => {

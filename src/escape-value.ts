@@ -1,4 +1,4 @@
-const CHARS_TO_ESCAPE = /["'();,=!~<>\s]/;
+const CHARS_TO_ESCAPE = /[\\"'();,=!~<>\s]/;
 
 export function escapeValue(value: unknown): string {
   if (Array.isArray(value)) {
@@ -12,7 +12,9 @@ export function escapeValue(value: unknown): string {
   let valueString = value.toString();
 
   if (CHARS_TO_ESCAPE.test(valueString) || valueString.length === 0) {
-    valueString = `"${valueString.replace(/"/g, '\\"')}"`;
+    // Escape backslashes first so sequences like \\" are interpreted as a literal backslash + quote
+    // rather than an escaped quote; order matters.
+    valueString = `"${valueString.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
   }
 
   return valueString;
