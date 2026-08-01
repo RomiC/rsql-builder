@@ -27,7 +27,7 @@ jobs:
       - run: npm run lint
       - run: npm run test
       - run: npm run test:smoke
-      - uses: coverallsapp/github-action@v2.3.6
+      - uses: coverallsapp/github-action@v2.3.8
         with:
           github-token: ${{ secrets.github_token }}
           flag-name: node v${{ matrix.node }}
@@ -38,7 +38,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Publishing coverage report
     steps:
-      - uses: coverallsapp/github-action@v2.3.6
+      - uses: coverallsapp/github-action@v2.3.8
         with:
           github-token: ${{ secrets.github_token }}
           parallel-finished: true
