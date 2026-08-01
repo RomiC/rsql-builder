@@ -50,7 +50,7 @@
     "format:check": "oxfmt --check",
     "typecheck": "tsc --noEmit",
     "precommit": "lint-staged",
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepush": "npm run test && npm run test:smoke",
     "pretest": "npm run build:test",
     "pretest:no-coverage": "npm run build:test",
