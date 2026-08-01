@@ -41,10 +41,7 @@ Comparison tuples provide a concise shorthand without wrapping each condition in
 ```js
 import { and, eq, inList } from 'rsql-builder';
 
-const op = and(
-  ['field1', eq, 'val'],
-  ['field2', inList, 'foo', 'bar', 'baz']
-); // 'field1==val;field2=in=(foo,bar,baz)'
+const op = and(['field1', eq, 'val'], ['field2', inList, 'foo', 'bar', 'baz']); // 'field1==val;field2=in=(foo,bar,baz)'
 ```
 
 ### `or(...comparisons): string`
@@ -68,10 +65,7 @@ With comparison tuples:
 ```js
 import { or, eq, inList } from 'rsql-builder';
 
-const op = or(
-  ['field1', eq, 'val'],
-  ['field2', inList, 'foo', 'bar']
-); // 'field1==val,field2=in=(foo,bar)'
+const op = or(['field1', eq, 'val'], ['field2', inList, 'foo', 'bar']); // 'field1==val,field2=in=(foo,bar)'
 ```
 
 ### `cmp(field, operation): Comparison` or `comparison(field, operation): Comparison`
@@ -97,9 +91,9 @@ You can also pass an operator function **without invoking it**, together with it
 import { cmp, eq, inList } from 'rsql-builder';
 
 // Operator reference for single-value ops (eq, ne, ge, gt, le, lt):
-cmp('field1', eq, 200);        // 'field1==200'
-cmp('year', ge, 2000);         // 'year>=2000'
-cmp('name', ne, 'John');       // 'name!=John'
+cmp('field1', eq, 200); // 'field1==200'
+cmp('year', ge, 2000); // 'year>=2000'
+cmp('name', ne, 'John'); // 'name!=John'
 
 // Operator reference for multi-value ops (inList, outList):
 cmp('genres', inList, 'sci-fi', 'action', 'non fiction'); // 'genres=in=(sci-fi,action,"non fiction")'
