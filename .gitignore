@@ -44,3 +44,6 @@ settings.json
 
 *.tgz
 .DS_Store
+
+# pi agent artifacts
+.pi/
