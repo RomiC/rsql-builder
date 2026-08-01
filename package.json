@@ -2,9 +2,33 @@
   "name": "rsql-builder",
   "version": "1.4.1",
   "description": "RSQL query builder",
+  "keywords": [
+    "builder",
+    "query",
+    "rsql"
+  ],
+  "homepage": "https://github.com/RomiC/rsql-builder#readme",
+  "bugs": {
+    "url": "https://github.com/RomiC/rsql-builder/issues"
+  },
+  "license": "MIT",
+  "author": "Roman Charugin <romic+github@fastmail.com>",
+  "contributors": [
+    "Roman Charugin <romic+github@fastmail.com>",
+    "Mihael Šafarić <mihael.safaric@gmail.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomiC/rsql-builder.git"
+  },
+  "files": [
+    "dist"
+  ],
   "type": "module",
+  "sideEffects": false,
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
@@ -20,8 +44,10 @@
   "scripts": {
     "build": "tsdown",
     "build:test": "tsdown -c tsdown.tests.config.ts",
-    "lint": "eslint",
-    "lint:fix": "npm run lint -- --fix",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "format": "oxfmt",
+    "format:check": "oxfmt --check",
     "precommit": "lint-staged",
     "prepare": "husky install",
     "prepush": "npm run test && npm run test:smoke",
@@ -32,54 +58,24 @@
     "test:smoke": "node ./scripts/smoke-cjs.cjs && node ./scripts/smoke-esm.mjs",
     "test:no-coverage": "node --test tests/*.spec.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/RomiC/rsql-builder.git"
-  },
-  "keywords": [
-    "rsql",
-    "query",
-    "builder"
-  ],
-  "engines": {
-    "node": ">= 22"
+  "devDependencies": {
+    "@types/node": "26.1.2",
+    "c8": "^12.0.0",
+    "husky": "9.1.7",
+    "lint-staged": "17.2.0",
+    "oxfmt": "^0.61.0",
+    "oxlint": "^1.76.0",
+    "tsdown": "0.22.14",
+    "typescript": "6.0.3"
   },
   "overrides": {
     "yargs": "^18.0.0"
   },
-  "author": "Roman Charugin <i@charugin.ru>",
-  "contributors": [
-    "Roman Charugin <i@charugin.ru>",
-    "Mihael Šafarić <mihael.safaric@gmail.com>"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/RomiC/rsql-builder/issues"
-  },
-  "homepage": "https://github.com/RomiC/rsql-builder#readme",
-  "devDependencies": {
-    "@eslint/js": "9.39.2",
-    "@types/node": "26.1.2",
-    "c8": "^12.0.0",
-    "eslint": "9.39.2",
-    "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-import": "2.32.0",
-    "eslint-plugin-jsdoc": "63.3.2",
-    "eslint-plugin-prefer-arrow": "1.2.3",
-    "eslint-plugin-prettier": "5.5.6",
-    "husky": "9.1.7",
-    "lint-staged": "17.2.0",
-    "prettier": "3.9.6",
-    "tsdown": "0.22.14",
-    "typescript": "6.0.3",
-    "typescript-eslint": "8.65.0"
-  },
   "lint-staged": {
-    "*.ts": "npm run lint:fix"
+    "*.{js,ts,mjs,cjs}": "npm run lint:fix",
+    "*.{js,ts,mjs,cjs,json,md,yml,yaml}": "npm run format"
   },
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "sideEffects": false
+  "engines": {
+    "node": ">= 22"
+  }
 }
