@@ -69,7 +69,7 @@
     "eslint-plugin-prettier": "5.5.6",
     "husky": "9.1.7",
     "lint-staged": "17.2.0",
-    "prettier": "3.9.1",
+    "prettier": "3.9.6",
     "tsdown": "0.22.14",
     "typescript": "6.0.3",
     "typescript-eslint": "8.62.0"
