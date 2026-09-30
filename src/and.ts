@@ -1,28 +1,58 @@
 import { type Argument, Operation } from './operation';
 import { type Comparison, GroupType, type ComparisonTuple } from './comparison';
 
+/**
+ * Checks whether an expression has an "or" on its top level, i.e. must be wrapped in parentheses
+ * before it is joined into an "and"-group.
+ *
+ * Tracks the nesting depth and skips quoted values (`"…"` or `'…'`, a backslash escapes the next
+ * character), so a `(`, `)` or `,` inside a value does not count. Input that cannot be reasoned
+ * about (unbalanced parentheses, an unterminated quote) is reported as needing parentheses, since
+ * redundant parentheses are always safe.
+ */
 function hasOrOperation(operation: string): boolean {
-  let insideBracket = false;
+  let depth = 0;
+  let quote: string | undefined;
+  let escaped = false;
 
   for (const char of operation) {
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === '\\') {
+        escaped = true;
+      } else if (char === quote) {
+        quote = undefined;
+      }
+      continue;
+    }
+
     switch (char) {
+      case '"':
+      case "'":
+        quote = char;
+        break;
+
       case '(':
-        insideBracket = true;
+        depth++;
         break;
 
       case ')':
-        insideBracket = false;
+        depth--;
+        if (depth < 0) {
+          return true;
+        }
         break;
 
       case GroupType.OR:
-        if (!insideBracket) {
+        if (depth === 0) {
           return true;
         }
         break;
     }
   }
 
-  return false;
+  return depth !== 0 || quote !== undefined;
 }
 
 /**

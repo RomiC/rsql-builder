@@ -1,6 +1,6 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { and, cmp, eq, ge, inList, comparison } from '../dist/index.js';
+import { and, cmp, eq, ge, inList, comparison, or } from '../dist/index.js';
 
 describe('and()', () => {
   it('should return and-expression string', () => {
@@ -48,6 +48,38 @@ describe('and()', () => {
     it('should compose with and() using tuple syntax', () => {
       const query = and(['field1', eq, 'val'], ['field2', inList, 'foo', 'bar', 'baz']);
       assert.strictEqual(query, 'field1==val;field2=in=(foo,bar,baz)');
+    });
+  });
+
+  describe('or-detection with special characters', () => {
+    it('should wrap an or-group whose escaped value contains a parenthesis', () => {
+      for (const value of ['*(*', '*)*', '((', '(",\'),;']) {
+        const group = or(cmp('name', eq(value)), cmp('id', eq(1)));
+        assert.strictEqual(and('owner==42', group), `owner==42;(${group})`, `value: ${value}`);
+      }
+    });
+
+    it('should wrap an or-group after a closed nested group', () => {
+      assert.strictEqual(and('a==1', '(b==1,c==1),d==1'), 'a==1;((b==1,c==1),d==1)');
+      assert.strictEqual(and('a==1', 'b=in=(1,2),c==1'), 'a==1;(b=in=(1,2),c==1)');
+    });
+
+    it('should respect single quotes and backslash escapes', () => {
+      assert.strictEqual(and('a==1', "b=='(',c==1"), "a==1;(b=='(',c==1)");
+      assert.strictEqual(and('a==1', 'b=="\\"(",c==1'), 'a==1;(b=="\\"(",c==1)');
+    });
+
+    it('should not wrap when the comma is inside quotes or parentheses', () => {
+      assert.strictEqual(and('a==1', 'b=="x,y"'), 'a==1;b=="x,y"');
+      assert.strictEqual(and('a==1', "b=='x,y'"), "a==1;b=='x,y'");
+      assert.strictEqual(and('a==1', '((b==1,c==1))'), 'a==1;((b==1,c==1))');
+      assert.strictEqual(and('a==1', 'b==")";c==1'), 'a==1;b==")";c==1');
+    });
+
+    it('should wrap input with unbalanced parentheses or an open quote', () => {
+      assert.strictEqual(and('a==1', 'b==1)'), 'a==1;(b==1))');
+      assert.strictEqual(and('a==1', '(b==1'), 'a==1;((b==1)');
+      assert.strictEqual(and('a==1', 'b=="open'), 'a==1;(b=="open)');
     });
   });
 });
