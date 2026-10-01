@@ -1,28 +1,64 @@
 import { type Argument, Operation } from './operation';
 import { type Comparison, GroupType, type ComparisonTuple } from './comparison';
 
-function hasOrOperation(operation: string): boolean {
-  let insideBracket = false;
+const OR_KEYWORD_PRECEDER = /[\s)"']/;
 
-  for (const char of operation) {
+function hasOrOperation(operation: string): boolean {
+  let depth = 0;
+  let quote: string | undefined;
+  let escaped = false;
+
+  for (let index = 0; index < operation.length; index++) {
+    const char = operation[index];
+
+    if (quote) {
+      if (escaped) {
+        escaped = false;
+      } else if (char === '\\') {
+        escaped = true;
+      } else if (char === quote) {
+        quote = undefined;
+      }
+      continue;
+    }
+
     switch (char) {
+      case '"':
+      case "'":
+        quote = char;
+        break;
+
       case '(':
-        insideBracket = true;
+        depth++;
         break;
 
       case ')':
-        insideBracket = false;
+        depth--;
+        if (depth < 0) {
+          return true;
+        }
         break;
 
       case GroupType.OR:
-        if (!insideBracket) {
+        if (depth === 0) {
+          return true;
+        }
+        break;
+
+      case 'o':
+      case 'O':
+        if (
+          depth === 0 &&
+          operation[index + 1]?.toLowerCase() === 'r' &&
+          OR_KEYWORD_PRECEDER.test(operation[index - 1] ?? '')
+        ) {
           return true;
         }
         break;
     }
   }
 
-  return false;
+  return depth !== 0 || quote !== undefined;
 }
 
 /**
