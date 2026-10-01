@@ -1,20 +1,8 @@
 import { type Argument, Operation } from './operation';
 import { type Comparison, GroupType, type ComparisonTuple } from './comparison';
 
-/** Characters after which `or` is the keyword, not part of a selector or value. */
 const OR_KEYWORD_PRECEDER = /[\s)"']/;
 
-/**
- * Checks whether an expression has an "or" on its top level, i.e. must be wrapped in parentheses
- * before it is joined into an "and"-group.
- *
- * Tracks the nesting depth and skips quoted values (`"…"` or `'…'`, a backslash escapes the next
- * character), so a `(`, `)` or `,` inside a value does not count. Besides `,` the keyword `or` (any
- * letter case) counts as "or" when it follows whitespace, `)` or a closing quote — RSQL allows it as
- * an alternative to `,`. Input that cannot be reasoned about (unbalanced parentheses, an unterminated
- * quote) and an `or` that might not be one are reported as needing parentheses, since redundant
- * parentheses are always safe.
- */
 function hasOrOperation(operation: string): boolean {
   let depth = 0;
   let quote: string | undefined;
