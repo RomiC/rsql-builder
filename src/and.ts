@@ -1,21 +1,28 @@
 import { type Argument, Operation } from './operation';
 import { type Comparison, GroupType, type ComparisonTuple } from './comparison';
 
+/** Characters after which `or` is the keyword, not part of a selector or value. */
+const OR_KEYWORD_PRECEDER = /[\s)"']/;
+
 /**
  * Checks whether an expression has an "or" on its top level, i.e. must be wrapped in parentheses
  * before it is joined into an "and"-group.
  *
  * Tracks the nesting depth and skips quoted values (`"…"` or `'…'`, a backslash escapes the next
- * character), so a `(`, `)` or `,` inside a value does not count. Input that cannot be reasoned
- * about (unbalanced parentheses, an unterminated quote) is reported as needing parentheses, since
- * redundant parentheses are always safe.
+ * character), so a `(`, `)` or `,` inside a value does not count. Besides `,` the keyword `or` (any
+ * letter case) counts as "or" when it follows whitespace, `)` or a closing quote — RSQL allows it as
+ * an alternative to `,`. Input that cannot be reasoned about (unbalanced parentheses, an unterminated
+ * quote) and an `or` that might not be one are reported as needing parentheses, since redundant
+ * parentheses are always safe.
  */
 function hasOrOperation(operation: string): boolean {
   let depth = 0;
   let quote: string | undefined;
   let escaped = false;
 
-  for (const char of operation) {
+  for (let index = 0; index < operation.length; index++) {
+    const char = operation[index];
+
     if (quote) {
       if (escaped) {
         escaped = false;
@@ -46,6 +53,17 @@ function hasOrOperation(operation: string): boolean {
 
       case GroupType.OR:
         if (depth === 0) {
+          return true;
+        }
+        break;
+
+      case 'o':
+      case 'O':
+        if (
+          depth === 0 &&
+          operation[index + 1]?.toLowerCase() === 'r' &&
+          OR_KEYWORD_PRECEDER.test(operation[index - 1] ?? '')
+        ) {
           return true;
         }
         break;

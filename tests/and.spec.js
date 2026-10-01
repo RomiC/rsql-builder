@@ -76,6 +76,18 @@ describe('and()', () => {
       assert.strictEqual(and('a==1', 'b==")";c==1'), 'a==1;b==")";c==1');
     });
 
+    it('should wrap an or-group that uses the keyword or', () => {
+      for (const entry of ['b==1 or c==1', 'b==1 OR c==1', 'b==1 orc==1', '(b==1)or(c==1)', 'b=="x"or c==1']) {
+        assert.strictEqual(and('a==1', entry), `a==1;(${entry})`, `entry: ${entry}`);
+      }
+    });
+
+    it('should not take or inside a word, quotes or a group for the keyword', () => {
+      for (const entry of ['color==red', 'b==1;order==2', 'or==1', 'b==o', 'b=="x or y"', '(b==1 or c==1)']) {
+        assert.strictEqual(and('a==1', entry), `a==1;${entry}`, `entry: ${entry}`);
+      }
+    });
+
     it('should wrap input with unbalanced parentheses or an open quote', () => {
       assert.strictEqual(and('a==1', 'b==1)'), 'a==1;(b==1))');
       assert.strictEqual(and('a==1', '(b==1'), 'a==1;((b==1)');
