@@ -1,6 +1,6 @@
 {
   "name": "rsql-builder",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "RSQL query builder",
   "keywords": [
     "builder",
@@ -15,7 +15,8 @@
   "author": "Roman Charugin <romic+github@fastmail.com>",
   "contributors": [
     "Roman Charugin <romic+github@fastmail.com>",
-    "Mihael Šafarić <mihael.safaric@gmail.com>"
+    "Mihael Šafarić <mihael.safaric@gmail.com>",
+    "Jens Krefeldt <deadratfink@users.noreply.github.com>"
   ],
   "repository": {
     "type": "git",
